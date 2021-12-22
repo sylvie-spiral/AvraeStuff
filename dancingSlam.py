@@ -1,0 +1,1 @@
+i attack "Force-Empowered Slam" -b "{{character().spellbook.sab}} [Spell Attack]" -d "{proficiencyBonus}" -dt "force"
