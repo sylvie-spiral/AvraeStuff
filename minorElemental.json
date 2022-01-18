@@ -1,0 +1,129 @@
+{
+    "CR 0": {
+        "Chwinga": {
+            "HD": 2,
+            "Source": "TOA",
+            "HP": 5
+        }
+    },
+    "CR 1/8": {
+        "Kharga": {
+            "HD": 2,
+            "Source": "MFFV1",
+            "HP": 11
+        }
+    },
+    "CR 1/4": {
+        "Air Elemental Mascot": {
+            "HD": 4,
+            "Source": "SCOC",
+            "HP": 22
+        },
+        "Geonid": {
+            "HD": 4,
+            "Source": "TTP",
+            "HP": 26
+        },
+        "Mud Mephit": {
+            "HD": 6,
+            "Source": "MM",
+            "HP": 27
+        },
+        "Mud Mephit (Summoner Variant)": {
+            "HD": 6,
+            "Source": "MM",
+            "HP": 27
+        },
+        "Smoke Mephit": {
+            "HD": 5,
+            "Source": "MM",
+            "HP": 22
+        },
+        "Smoke Mephit (Smmoner Variety)": {
+            "HD": 5,
+            "Source": "MM",
+            "HP": 22
+        },
+        "Steam Mephit": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 21
+        },
+        "Steam Mephit (Summoner Variant)": {
+            "HD": 6,
+            "Source": "MM",
+            "HP": 21
+        }
+    },
+    "CR 1/2": {
+        "Dust Mephit": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 17
+        },
+        "Dust Mephit (Summoner Variant)": {
+            "HD": 5,
+            "Source": "MM",
+            "HP": 17
+        },
+        "Ice Mephit": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 21
+        },
+        "Ice Mephit (Summoner Variant)": {
+            "HD": 6,
+            "Source": "MM",
+            "HP": 21
+        },
+        "Magma Mephit": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Magma Mephit (Summoner Variant)": {
+            "HD": 5,
+            "Source": "MM",
+            "HP": 22
+        },
+        "Magmin": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 9
+        }
+    },
+    "CR 1": {
+        "Fire Snake": {
+            "HD": 5,
+            "Source": "MM",
+            "HP": 22
+        },
+        "Galvanice Weird": {
+            "HD": 3,
+            "Source": "GGtR",
+            "HP": 22
+        }
+    },
+    "CR 2": {
+        "Azer": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 39
+        },
+        "Four-Armed Gargoyle": {
+            "HD": 7,
+            "Source": "DIT",
+            "HP": 63
+        },
+        "Gargoyle": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 52
+        },
+        "Lady Gondafrey": {
+            "HD": 7,
+            "Source": "WDH",
+            "HP": 52
+        }
+    }
+}

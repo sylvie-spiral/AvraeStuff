@@ -1,0 +1,804 @@
+{
+    "CR 0": {
+        "Weasel": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Vulture": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 5
+        },
+        "Spider": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Sheep": {
+            "HD": 1,
+            "Source": "SKT",
+            "HP": 3
+        },
+        "Seal": {
+            "HD": 2,
+            "Source": "IDRotFM",
+            "HP": 9
+        },
+        "Sea Horse": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Scorpion": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Raven": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Rat": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Quipper": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Pollenella the Honeybee": {
+            "HD": 1,
+            "Source": "TWBtW",
+            "HP": 1
+        },
+        "Pig": {
+            "HD": 1,
+            "Source": "SKT",
+            "HP": 5
+        },
+        "Owl": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Onyx": {
+            "HD": 1,
+            "Source": "AI",
+            "HP": 2
+        },
+        "Octopus": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        },
+        "Knucklehead Trout": {
+            "HD": 2,
+            "Source": "IDRotFM",
+            "HP": 7
+        },
+        "Lizard": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        },
+        "Jackal": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        },
+        "Hyena": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 5
+        },
+        "Hawk": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Haungharassk": {
+            "HD": 7,
+            "Source": "DotMM",
+            "HP": 52
+        },
+        "Hare": {
+            "HD": 1,
+            "Source": "IDRotFM",
+            "HP": 1
+        },
+        "Kingsport": {
+            "HD": 1,
+            "Source": "IDRotFM",
+            "HP": 5
+        },
+        "Goat": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 4
+        },
+        "Giant Fly": {
+            "HD": 1,
+            "Source": "DMG",
+            "HP": 19
+        },
+        "Giant Fire Beetle": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 4
+        },
+        "Frog": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Fox": {
+            "HD": 1,
+            "Source": "IDRotFM",
+            "HP": 0
+        },
+        "Almiraj": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        },
+        "Baboon": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        },
+        "Flying Monkey": {
+            "HD": 1,
+            "Source": "ToA",
+            "HP": 3
+        },
+        "Deer": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 4
+        },
+        "Crab": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        },
+        "Chimeric Weasel": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Chimeric Rat": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Chimeric Fox": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        },
+        "Chimeric Cat": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        },
+        "Chimeric Baboon": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        },
+        "Cat": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        },
+        "Bat": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Badger": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        },
+        "Chimeric Hare": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Cranium Rat": {
+            "HD": 1,
+            "Source": "VGtM",
+            "HP": 2
+        },
+        "Eagle": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 3
+        }
+    },
+    "CR 1/8": {
+        "Barnacle Bass": {
+            "HD": 2,
+            "Source": "GoS",
+            "HP": 13
+        },
+        "Blood Hawk": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 7
+        },
+        "Camel": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 15
+        },
+        "Diseased Giant Rat": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 7
+        },
+        "Dolphin": {
+            "HD": 2,
+            "Source": "VGtM",
+            "HP": 11
+        },
+        "Flying Snake": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 5
+        },
+        "Giant Crab": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Giant Rat": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 7
+        },
+        "Giant Weasel": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 9
+        },
+        "Ligotti": {
+            "HD": 1,
+            "Source": "AI",
+            "HP": 2
+        },
+        "Mastiff": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 5
+        },
+        "Mountain Goat": {
+            "HD": 2,
+            "Source": "IDRotFM",
+            "HP": 13
+        },
+        "Mule": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 11
+        },
+        "Poisonous Snake": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 2
+        },
+        "Pony": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 11
+        },
+        "Stirge": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        }
+    },
+    "CR 1/4": {
+        "Axe Beak": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Boar": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 11
+        },
+        "Cave Badger": {
+            "HD": 2,
+            "Source": "OotA",
+            "HP": 13
+        },
+        "Constrictor Snake": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Cow": {
+            "HD": 2,
+            "Source": "VGtM",
+            "HP": 15
+        },
+        "Deep Rothé": {
+            "HD": 2,
+            "Source": "VGtM",
+            "HP": 13
+        },
+        "Dimetrodon": {
+            "HD": 3,
+            "Source": "VGtM",
+            "HP": 19
+        },
+        "Draft Horse": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Elk": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Fastieth": {
+            "HD": 2,
+            "Source": "ERftLW",
+            "HP": 9
+        },
+        "Giant Badger": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Giant Bat": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Giant Centipede": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 4
+        },
+        "Giant Frog": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 18
+        },
+        "Giant Lizard": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Giant Lizard (variant)": {
+            "HD": 3,
+            "Source": "MM",
+            "HP": 19
+        },
+        "Giant Owl": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Giant Poisonous Snake": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 11
+        },
+        "Giant Riding Lizard": {
+            "HD": 3,
+            "Source": "OotA",
+            "HP": 19
+        },
+        "Giant Snail": {
+            "HD": 4,
+            "Source": "TWBtW",
+            "HP": 22
+        },
+        "Giant Wolf Spider": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 11
+        },
+        "Guthash": {
+            "HD": 2,
+            "Source": "TSC",
+            "HP": 16
+        },
+        "Hadrosaurus": {
+            "HD": 3,
+            "Source": "VGtM",
+            "HP": 19
+        },
+        "Ox": {
+            "HD": 2,
+            "Source": "VGtM",
+            "HP": 15
+        },
+        "Panther": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Pteranodon": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Riding Horse": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Rothé": {
+            "HD": 2,
+            "Source": "VGtM",
+            "HP": 15
+        },
+        "Snarl": {
+            "HD": 2,
+            "Source": "LMoP",
+            "HP": 18
+        },
+        "Stench Kow": {
+            "HD": 2,
+            "Source": "VGtM",
+            "HP": 15
+        },
+        "Swarm of Bats": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Rats": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 24
+        },
+        "Swarm of Rats (Diseased Variant)": {
+            "HD": 7,
+            "Source": "THSoT",
+            "HP": 24
+        },
+        "Swarm of Ravens": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 24
+        },
+        "Velociraptor": {
+            "HD": 3,
+            "Source": "VGtM",
+            "HP": 10
+        },
+        "Walrus": {
+            "HD": 3,
+            "Source": "IDRotFM",
+            "HP": 22
+        },
+        "Wolf": {
+            "HD": 2,
+            "Source": "BR",
+            "HP": 11
+        }
+    },
+    "CR 1/2": {
+        "Ape": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Black Bear": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Clawfoot Raptor": {
+            "HD": 3,
+            "Source": "WGtE",
+            "HP": 16
+        },
+        "Crocodile": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Fiendish Giant Spider": {
+            "HD": 2,
+            "Source": "OotA",
+            "HP": 11
+        },
+        "Giant Canary": {
+            "HD": 4,
+            "Source": "FToD",
+            "HP": 26
+        },
+        "Giant Dragonfly": {
+            "HD": 4,
+            "Source": "TWBtW",
+            "HP": 22
+        },
+        "Giant Goat": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        },
+        "Giant Sea Eel": {
+            "HD": 3,
+            "Source": "GoS",
+            "HP": 19
+        },
+        "Giant Sea Horse": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 16
+        },
+        "Giant Wasp": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 13
+        },
+        "Jaculi": {
+            "HD": 3,
+            "Source": "ToA",
+            "HP": 16
+        },
+        "Reef Shark": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Insects": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Insects (Beetles)": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Insects (Centipedes)": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Insects (Spiders)": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Insects (Wasps)": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Swarm of Rot Grubs": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Warhorse": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 19
+        }
+    },
+    "CR 1": {
+        "Brown Bear": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 34
+        },
+        "Clawfoot": {
+            "HD": 3,
+            "Source": "ERftLW",
+            "HP": 19
+        },
+        "Deinonychus": {
+            "HD": 4,
+            "Source": "VGtM",
+            "HP": 26
+        },
+        "Dire Wolf": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 37
+        },
+        "Giant Eagle": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 26
+        },
+        "Giant Hyena": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 45
+        },
+        "Giant Octopus": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 52
+        },
+        "Giant Rocktopus": {
+            "HD": 8,
+            "Source": "OotA",
+            "HP": 52
+        },
+        "Giant Spider": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 26
+        },
+        "Giant Swan": {
+            "HD": 4,
+            "Source": "TWBtW",
+            "HP": 26
+        },
+        "Giant Toad": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 39
+        },
+        "Giant Vulture": {
+            "HD": 3,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Ice Spider": {
+            "HD": 4,
+            "Source": "SKT",
+            "HP": 26
+        },
+        "Lion": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 26
+        },
+        "Moorbounder": {
+            "HD": 4,
+            "Source": "EGtW",
+            "HP": 30
+        },
+        "Nyxborn Lynx": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 37
+        },
+        "Old Croaker": {
+            "HD": 6,
+            "Source": "EGtW",
+            "HP": 39
+        },
+        "Sangzor": {
+            "HD": 3,
+            "Source": "CoS",
+            "HP": 33
+        },
+        "Spider King": {
+            "HD": 4,
+            "Source": "OotA",
+            "HP": 44
+        },
+        "Swarm of Quippers": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 28
+        },
+        "Tiger": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 37
+        },
+        "Two-Headed Crocodile": {
+            "HD": 3,
+            "Source": "IMR",
+            "HP": 19
+        }
+    },
+    "CR2": {
+        "Allosaurus": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 51
+        },
+        "Aurochs": {
+            "HD": 4,
+            "Source": "VGtM",
+            "HP": 38
+        },
+        "Cave Bear": {
+            "HD": 5,
+            "Source": "MM",
+            "HP": 42
+        },
+        "Enormous Tentacle": {
+            "HD": 8,
+            "Source": "AI",
+            "HP": 60
+        },
+        "Giant Boar": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 42
+        },
+        "Giant Constrictor Snake": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 60
+        },
+        "Giant Crayfish": {
+            "HD": 7,
+            "Source": "THSoT",
+            "HP": 45
+        },
+        "Giant Elk": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 42
+        },
+        "Giant White Moray Eel": {
+            "HD": 8,
+            "Source": "GoS",
+            "HP": 60
+        },
+        "Hunter Shark": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 45
+        },
+        "Ice Spider Queen": {
+            "HD": 4,
+            "Source": "SKT",
+            "HP": 44
+        },
+        "Plesiosaurus": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 68
+        },
+        "Polar Bear": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 42
+        },
+        "Quetzalcoatlus": {
+            "HD": 4,
+            "Source": "VGtM",
+            "HP": 30
+        },
+        "Relic Sloth": {
+            "HD": 8,
+            "Source": "SACOC",
+            "HP": 76
+        },
+        "Rhinoceros": {
+            "HD": 6,
+            "Source": "BR",
+            "HP": 45
+        },
+        "Saber-Toothed Tiger": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 52
+        },
+        "Swarm of Maggots": {
+            "HD": 5,
+            "Source": "VRGTR",
+            "HP": 22
+        },
+        "Swarm of Poisonous Snakes": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 36
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "Woodland Beings": {
+        "gvar": "096f1233-9423-47d7-a5d2-5441746f6c53",
+        "level": 4,
+        "interval": 2,
+        "ns": {
+            "CR 0": 8,
+            "CR 1/8": 8,
+            "CR 1/4": 8,
+            "CR 1/2": 4,
+            "CR 1": 2,
+            "CR 2": 1
+        },
+        "shep": 1
+    },
+    "Animals": {
+        "gvar": "5517ee08-0888-479e-be8c-76b7e2f14c40",
+        "level": 3,
+        "interval": 2,
+        "ns": {
+            "CR 0": 8,
+            "CR 1/8": 8,
+            "CR 1/4": 8,
+            "CR 1/2": 4,
+            "CR 1": 2,
+            "CR 2": 1
+        },
+        "shep": 1
+    },
+    "Minor Elementals": {
+        "gvar": "70e80dae-8b20-4ea7-8e78-170c329917ff",
+        "level": 4,
+        "interval": 2,
+        "ns": {
+            "CR 0": 8,
+            "CR 1/8": 8,
+            "CR 1/4": 8,
+            "CR 1/2": 4,
+            "CR 1": 2,
+            "CR 2": 1
+        },
+        "shep": 0
+    }
+}

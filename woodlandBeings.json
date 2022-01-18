@@ -1,0 +1,149 @@
+{
+    "CR 0": {
+        "Killmoulis": {
+            "HD": 2,
+            "Source": "MFFV1",
+            "HP": 7
+        }
+    },
+    "CR 1/8": {
+        "Boggle": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 18
+        },
+        "Brigganock": {
+            "HD": 2,
+            "Source": "TWBtW",
+            "HP": 9
+        },
+        "Valenar Hawk": {
+            "HD": 4,
+            "Source": "ERftLW",
+            "HP": 10
+        }
+    },
+    "CR 1/4": {
+        "Blink Dog": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Mite": {
+            "HD": 2,
+            "Source": "MFFV1",
+            "HP": 7
+        },
+        "Pixie": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 1
+        },
+        "Sprite": {
+            "HD": 1,
+            "Source": "BR",
+            "HP": 2
+        }
+    },
+    "CR 1/2": {
+        "Darkling": {
+            "HD": 3,
+            "Source": "VGtM",
+            "HP": 13
+        },
+        "Reflections": {
+            "HD": 3,
+            "Source": "TCoE",
+            "HP": 16
+        },
+        "Satyr": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 31
+        },
+        "Satyr (Variant)": {
+            "HD": 7,
+            "Source": "MM",
+            "HP": 31
+        },
+        "Shadow (Variant)": {
+            "HD": 3,
+            "Source": "TWBtW",
+            "HP": 16
+        },
+        "Valenar Hound": {
+            "HD": 3,
+            "Source": "ERftLW",
+            "HP": 19
+        },
+        "Valenar Steed": {
+            "HD": 3,
+            "Source": "ERftLW",
+            "HP": 22
+        }
+    },
+    "CR 1": {
+        "Alseid": {
+            "HD": 4,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Dryad": {
+            "HD": 5,
+            "Source": "BR",
+            "HP": 22
+        },
+        "Quickling": {
+            "HD": 3,
+            "Source": "VGtM",
+            "HP": 10
+        },
+        "Satyr Reveler": {
+            "HD": 6,
+            "Source": "MooT",
+            "HP": 33
+        },
+        "Screaming Devilkin": {
+            "HD": 4,
+            "Source": "MFFV1",
+            "HP": 18
+        }
+    },
+    "CR 2": {
+        "Agdon Longscarf": {
+            "HD": 8,
+            "Source": "TWBtW",
+            "HP": 36
+        },
+        "Darkling Elder": {
+            "HD": 5,
+            "Source": "VGtM",
+            "HP": 27
+        },
+        "Meenlock": {
+            "HD": 7,
+            "Source": "VGtM",
+            "HP": 31
+        },
+        "Naiad": {
+            "HD": 7,
+            "Source": "MooT",
+            "HP": 31
+        },
+        "Nereid": {
+            "HD": 8,
+            "Source": "THSoT",
+            "HP": 44
+        },
+        "Satyr Thornbearer": {
+            "HD": 7,
+            "Source": "MooT",
+            "HP": 38
+        },
+        "Sea Hag": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 52
+        }
+    }
+}
