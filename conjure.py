@@ -1,152 +1,176 @@
 multiline
 <drac2>
-  out = []
+  o = []
+  ms = []
+
   ch = character()
 
-  parsedArgs = argparse("&*&")
+  pa = argparse("&*&")
   args = &ARGS&
 
-  i = parsedArgs.last("i")
+  i = pa.last("i")
+  bd = int(pa.last("band", -1))
+  ls = "list" in args
+  shep = load_json(get("subclass", "{}")).get("DruidLevel", "").lower() == "shepherd"
+
+  cr = {1:["CR 0","CR 1/8","CR 1/4"],2:["CR 1/2"],3:["CR 1"],4:["CR 2"]}
+  if bd > len(cr):
+    bd = -1
 
   bhp = 0
   
   grp = f"""CO-{name}"""
 
-  allSpells = load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
+  aSP = load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
 
-  druidL = ch.levels.get("Druid")
-  isShep = False
-  if (druidL >= 3):
-    if ("subclass" in ch.cvars):
-      subc = load_json(ch.cvars["subclass"]).get("DruidLevel","")
+  spell = None
+  ws = None
 
-    if subc == "Shepherd":
-      isShep = True
+  if len(args) > 1:
+    a1 = args[0].lower()
 
-  msg = []
-
-  if (len(args) < 2) or args[0] == "help" or args[0] == "?":
-    for t in allSpells:
-      msg.append(f"""* {t}""")
-  elif (args[0] == "list"):    
-    for t in allSpells:
-      if not args[1].lower() in t.lower():
-        continue
-
-      g = allSpells.get(t)
-
-      data = get_gvar(g.gvar)
-      ratings = load_json(data)
-    
-      msg.append(f"""**Conjure {t}**""")
-
-      for r in ratings:
-        msg.append(f"""*{r}*""")
-        items = []
-        curr = ratings.get(r)
-        for m in curr:          
-          info = curr.get(m)
-          items.append(f"""{m} ({info.Source})""")
-
-        msg.append(", ".join(items))
-        msg.append("")
-      
-      break
+  if (len(args) < 2):
+    ms.append("Supports the following spells:")
+    for t in aSP:
+      ms.append(f"""* {t}""")
   else:
-    spell = None
-    which = None
-    for t in allSpells:
-      if not args[0].lower() in t.lower():
-        continue
+    its = []
+    ex = False
+    
+    for k in aSP.keys():
+      v = aSP.get(k)
+      kl = k.lower()
+      if a1 in kl:
+        spell = f"""Conjure {k}"""
+        ws = v
+        its.append(k)
 
-      spell = f"""Conjure {t}"""
-
-      which = allSpells.get(t)
-      msg.append(f"""*{ch.name} casts {spell}*.""")
-      break
-
-    if which == None:
-      msg.append(f"""Couldn't find {args[0]}.""")
+        if a1 == kl:
+          ex = True          
+          break
+    
+    if ex or len(its) == 1:
+       ms.append(f"""**{spell}**""")
+       l = int(pa.last("l", ws.level))
     else:
-      who = False
-      rating = ""
-      cre = ""
+      ms.append(f"""The following spells match {a1}:""")
+      ms.append("\n".join(its))
+      spell = ""
 
-      data = get_gvar(which.gvar)
+    if spell and ls:      
+      bs = {}
+      flt = "NO"
 
-      ratings = load_json(data)
+      if bd > 0:
+        flt = cr[bd]
+      elif (len(args) > 2):
+        flt = ["CR " + args[2]]
+      else:
+        ms.append("Please specify a CR or band.")
+        for x in range(1,5):
+          ms.append(f"""* bd {x}: {cr[x]} - {ws.ns[cr[x][0]]} respond""")
+          
+      if flt != "NO":
+        g = ws
 
-      cre = args[1].lower()
-      exact = False
-      count = 0
-      w = None
-      tc = cre
+        for r in flt:
+          bs[r] = []
 
-      for r in ratings:
-        curr = ratings.get(r)
+        for j in ws.gvar:
+          ratings = load_json(get_gvar(j))
 
-        for k,v in curr.items():
-          if exact:
+          for r in ratings:
+            if not r in flt:
+              continue
+
+            its = bs.get(r)
+          
+            ci = ratings.get(r)
+            for m in ci:
+              ii = ci.get(m)
+              its.append(f"""{m} ({ii.Source})""")
+
+            bs.update({r: its})
+
+        for j in bs:
+          its = bs[j]
+          its.sort()
+          
+          ms.append(f"""**{j}**""")
+          ms.append(", ".join(its))
+          ms.append("")
+
+        ms.append("Use !conjure with the creature the DM chooses.")
+    elif spell:
+      c = args[1].lower()
+
+      g = 0
+      if i:
+        ms.append("Ignored resources")
+        g = 1
+      elif ch.spellbook.can_cast(spell, l):
+        g = 1
+        ch.spellbook.use_slot(l)
+        ms.append(ch.spellbook.slots_str(l))
+      else:
+        ms.append("Need a long rest? No slot available.")
+      
+      its = []
+      ii = None
+      cr = None
+      mm = None
+      ex = 0
+
+      if g:
+        for j in ws.gvar:
+          if ex:
             break
 
-          l = k.lower()
+          rat = load_json(get_gvar(j))
 
-          if cre == l:
-            exact = True
-            who = v
-            rating = r            
-            cre = k            
-          elif cre in l:
-            w = v
-            rating = r
-            tc = k            
-            count = count + 1            
+          for r in rat:
+            if ex:
+              break
 
-        if not exact:
-          who = w        
-          cre = tc
+            am = rat.get(r)
 
-      if not who or (not exact and count > 1):
-        msg.append(f"""{count} matches for {cre}""")        
-      else:
-        sl = parsedArgs.last("l", which.level, int)
-        if not sl:
-          sl = which.level
-  
-        cast = False
-        if i:
-          msg.append("Ignored resources.")
-          cast = True
-        elif sl >= which.level and ch.spellbook.can_cast(spell, sl):
-          ch.spellbook.cast(spell, sl)
-          msg.append(ch.spellbook.slots_str(sl))
-          cast = True
-          
-        if not cast:
-          msg.append("Could not cast the spell.")
+            for m in am:
+              ml = m.lower()            
+              if c in ml:
+                ii = am.get(m)
+                its.append(ii)
+                mm = ml
+                cr = r
+
+                if ml == c:
+                  its = [ii]
+                  ex = 1
+                  break
+            
+        if (ii == None) or (not ex and (len(its)>1)):
+          ms.append(f"""Couldn't find {c} - {its}""")
         else:
-          msg.append(f"""{ch.name} is conjuring {cre} ({rating})""")
+          hp = ii.HP
+          ns = ws.ns[cr]
+          shep = shep and ws.shep
+          mul = 1 + int((l - ws.level) / ws.interval)
 
-          ns = which.ns.get(rating)
-          
-          mult = 1 + int((sl - which.level) / which.interval)
+          if shep:
+            hp = hp + ii.HD * 2
+            ms.append("Mighty Summoner")
 
-          ns = ns * mult
+          if combat():
+            for x in range(0, mul):
+              o.append(f"""!i madd "{mm}" -n {ns} -group "CO-{name}" -controller {ctx.author} -h -hp {hp}""")
+          else:
+            t = mul * ns
+            ms.append(f"""{t} {mm} respond.""")
 
-          msg.append(f"""{ns} respond to the call.""")
+    else:
+      ms.append(f"""Couldn't find "{a1}" """)
 
-          if (isShep) and (which.shep):
-            bhp = bhp + who.HD * 2
-            msg.append(f"""Mighty Summoner +{bhp} hp.""")
+  dt = "\n".join(ms)
+  o.append(f"""!embed -desc "{dt}" -footer {get_gvar("cc2f3710-f08e-4e7a-8f18-476252a1614f")} """)
 
-          if (combat()):
-            hp = who.HP + bhp             
-            out.append(f"""!i madd "{cre}" -group "{grp}" -n {ns} -hp {hp} -controller "{ctx.author.name}#{ctx.author.discriminator}" -h""")
-
-  desc = "\n".join(msg)
-
-  cmd = f"""!embed -desc "{desc}" -footer "!conjure list <spell> | !conjure <spell> <creature> [-l #] [-i] - @SylvieTG#4737" """
-  out.append(cmd)
-
-  return "\n".join(out)
+  return "\n".join(o)
 </drac2>

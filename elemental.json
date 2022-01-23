@@ -1,0 +1,146 @@
+{
+    "CR 3": {
+        "Flail Snail": {
+            "HD": 5,
+            "Source": "VGtM",
+            "HP": 52
+        },
+        "Water Weird": {
+            "HD": 9,
+            "Source": "MM",
+            "HP": 58
+        }
+    },
+    "CR 4": {
+        "Blistercoil Weird": {
+            "HD": 7,
+            "Source": "GGtR",
+            "HP": 45
+        },
+        "Poison Weird": {
+            "HD": 9,
+            "Source": "WDotMM",
+            "HP": 58
+        }
+    },
+    "CR 5": {
+        "Air Elemental": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 90
+        },
+        "Dust Devil": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 90
+        },
+        "Earth Elemental": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 126
+        },
+        "Fire Elemental": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 102
+        },
+        "Salamander": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 90
+        },
+        "Water Elemental": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 114
+        },
+        "Xorn": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 73
+        }
+    },
+    "CR 6": {
+        "Animated Breath": {
+            "HD": 10,
+            "Source": "FToD",
+            "HP": 95
+        },
+        "Animated Breath (Acid Form)": {
+            "HD": 10,
+            "Source": "FToD",
+            "HP": 95
+        },
+        "Animated Breath (Cold Form)": {
+            "HD": 10,
+            "Source": "FToD",
+            "HP": 95
+        },
+        "Animated Breath (Fire Form)": {
+            "HD": 10,
+            "Source": "FToD",
+            "HP": 95
+        },
+        "Animated Breath (Lightning Form)": {
+            "HD": 10,
+            "Source": "FToD",
+            "HP": 95
+        },
+        "Animated Breath (Poison Form)": {
+            "HD": 10,
+            "Source": "FToD",
+            "HP": 95
+        },
+        "Galeb Duhr": {
+            "HD": 9,
+            "Source": "MM",
+            "HP": 85
+        },
+        "Invisible Stalker": {
+            "HD": 16,
+            "Source": "BR",
+            "HP": 104
+        }
+    },
+    "CR 7": {
+        "Air Elemental Myrmidon": {
+            "HD": 18,
+            "Source": "PotA",
+            "HP": 117
+        },
+        "Earth Elemental Myrmidon": {
+            "HD": 17,
+            "Source": "PotA",
+            "HP": 127
+        },
+        "Fire Elemental Myrmidon": {
+            "HD": 19,
+            "Source": "PotA",
+            "HP": 123
+        },
+        "Water Elemental Myrmidon": {
+            "HD": 17,
+            "Source": "PotA",
+            "HP": 127
+        },
+        "Fluxcharger": {
+            "HD": 8,
+            "Source": "GGtR",
+            "HP": 60
+        }
+    },
+    "CR 8": {
+        "Big Xorn": {
+            "HD": 9,
+            "Source": "WdotMM",
+            "HP": 103
+        }
+    },
+    "CR 9": {
+        "Frost Salamander": {
+            "HD": 16,
+            "Source": "MToF",
+            "HP": 168
+        }
+    }
+}

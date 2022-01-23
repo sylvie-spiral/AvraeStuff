@@ -1,0 +1,21 @@
+{
+    "bat": { "keen": "Keen Hearing", "senses": "Blindsight 60 ft", "perception": 1 },
+    "cat": { "keen": "", "senses": "", "perception": 3 },
+    "crab": { "keen": "", "senses": "Blindsight 30 ft", "perception": -1 },
+    "frog": { "keen": "", "senses": "Darkvision 30 ft", "perception": 1 },
+    "hawk": { "keen": "Sight", "senses": "", "perception": 4 },
+    "lizard": { "keen": "", "senses": "Darkvision 30 ft", "perception": -1 },
+    "octopus": { "keen": "", "senses": "Darkvision 30 ft", "pereception": 2 },
+    "owl": { "keen": "Keen Hearing and Sight", "senses": "Darkvision 120 ft", "perception": 3 },
+    "poisonous snake": { "keen": "", "senses": "Blindsight 10 ft", "perception": 0 },
+    "quipper": { "keen": "", "senses": "Darkvision 60 ft", "perception": -2 },
+    "rat": { "keen": "", "senses": "Darkvision 30 ft", "perception": 0 },
+    "raven": { "keen": "", "senses": "", "perception": 3 },
+    "sea horse": { "keen": "", "senses": "", "perception": 0 },
+    "spider": { "keen": "", "senses": "Darkvision 30 ft, Web Sense", "perception": 0 },
+    "weasel": { "keen": "Keen Hearing and Smell", "senses": "", "perception": 3 },
+    "imp": { "keen": "", "senses": "Darkvision 120 ft. Not impacted by magical darkness.", "perception": "1" },
+    "pseudodragon": { "keen": "", "senses": "Blindsight 10 ft, Darkvision 60 ft", "perception": 3 },
+    "quasit": { "keen": "", "senses": "Darkvision 120 ft", "perception": 0 },
+    "sprite": { "keen": "", "senses": "", "perception": 3 }
+}
