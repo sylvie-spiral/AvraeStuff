@@ -1,0 +1,48 @@
+{
+    "CR 2": {
+        "Pegasus": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 59
+        }
+    },
+    "CR 4": {
+        "Couatal": {
+            "HD": 13,
+            "Source": "BR",
+            "HP": 97
+        },
+        "Winged Bull": {
+            "HD": 10,
+            "Source": "MOoT",
+            "HP": 95
+        },
+        "Winged Lion": {
+            "HD": 12,
+            "Source": "MOoT",
+            "HP": 114
+        }
+    },
+    "CR 5": {
+        "Battlleforce Angel": {
+            "HD": 12,
+            "Source": "GGtR",
+            "HP": 66
+        },
+        "Felidar": {
+            "HD": 11,
+            "Source": "GGtR",
+            "HP": 93
+        },
+        "Hollyphant": {
+            "HD": 8,
+            "Source": "BGDiA",
+            "HP": 36
+        },
+        "Unicorn": {
+            "HD": 9,
+            "Source": "BR",
+            "HP": 67
+        }
+    }
+}

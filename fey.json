@@ -1,0 +1,121 @@
+{
+    "CR 3": {
+        "Forlarren": {
+            "HD": 6,
+            "Source": "MFFV1",
+            "HP": 45
+        },
+        "Green Hag": {
+            "HD": 11,
+            "Source": "BR",
+            "HP": 82
+        },
+        "Lampad": {
+            "HD": 8,
+            "Source": "MOoT",
+            "HP": 52
+        },
+        "Madcap": {
+            "HD": 6,
+            "Source": "BGDiA",
+            "HP": 45
+        },
+        "Redcap": {
+            "HD": 6,
+            "Source": "VGtM",
+            "HP": 45
+        },
+        "Siren": {
+            "HD": 7,
+            "Source": "ToH",
+            "HP": 38
+        }
+    },
+    "CR 4": {
+        "Oread": {
+            "HD": 9,
+            "Source": "MOoT",
+            "HP": 49
+        },
+        "Sea Hag (Coven Variant)": {
+            "HD": 7,
+            "Source": "MM",
+            "HP": 52
+        },
+        "Yeth Hound": {
+            "HD": 6,
+            "Source": "VGtM",
+            "HP": 51
+        }
+    },
+    "CR 5": {
+        "Green Hag (Coven Variant)": {
+            "HD": 11,
+            "Source": "MM",
+            "HP": 82
+        },
+        "Hag of the Fetid Gaze": {
+            "HD": 11,
+            "Source": "CM",
+            "HP": 82
+        },
+        "Isolde": {
+            "HD": 11,
+            "Source": "VRGtR",
+            "HP": 82
+        }
+    },
+    "CR 6": {
+        "Annis Hag": {
+            "HD": 10,
+            "Source": "VGtM",
+            "HP": 75
+        },
+        "Dusk Hag": {
+            "HD": 15,
+            "Source": "ERftLW",
+            "HP": 82
+        },
+        "Endelyn Moongrave": {
+            "HD": 12,
+            "Source": "TWBtW",
+            "HP": 114
+        }
+    },
+    "CR 7": {
+        "Bavlorna Blightstraw": {
+            "HD": 13,
+            "Source": "TWBtW",
+            "HP": 110
+        },
+        "Bheur Hag": {
+            "HD": 91,
+            "Source": "VGtM",
+            "HP": 91
+        },
+        "Korred": {
+            "HD": 11,
+            "Source": "VGtM",
+            "HP": 93
+        },
+        "Smiler the Defiler": {
+            "HD": 22,
+            "Source": "BGDiA",
+            "HP": 165
+        }
+    },
+    "CR 8": {
+        "Skabatha Nightshade": {
+            "HD": 20,
+            "Source": "TWBtW",
+            "HP": 150
+        }
+    },
+    "CR 9": {
+        "Conclave Dryad": {
+            "HD": 22,
+            "Source": "GGtR",
+            "HP": 143
+        }
+    }
+}

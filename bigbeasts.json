@@ -1,0 +1,159 @@
+{
+    "CR 3": {
+        "Amphisbaena": {
+            "HD": 8,
+            "Source": "VGtM",
+            "HP": 60
+        },
+        "Ankylosaurus": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 68
+        },
+        "Awakened White Moose": {
+            "HD": 8,
+            "Source": "RotFM",
+            "HP": 68
+        },
+        "Bristled Moorbounder": {
+            "HD": 7,
+            "Source": "EGtW",
+            "HP": 52
+        },
+        "Giant Lightning Eel": {
+            "HD": 5,
+            "Source": "THSoT",
+            "HP": 42
+        },
+        "Giant Scorpion": {
+            "HD": 7,
+            "Source": "BR",
+            "HP": 52
+        },
+        "Giant Snapping Turtle": {
+            "HD": 10,
+            "Source": "ToA",
+            "HP": 75
+        },
+        "Killer Whale": {
+            "HD": 12,
+            "Source": "BR",
+            "HP": 90
+        },
+        "Sahuagin Hatchling Swarm": {
+            "HD": 8,
+            "Source": "GoS",
+            "HP": 52
+        },
+        "Swarm of Scarabs": {
+            "HD": 5,
+            "Source": "VRGtR",
+            "HP": 27
+        }
+    },
+    "CR 4": {
+        "Elephant": {
+            "HD": 8,
+            "Source": "BR",
+            "HP": 76
+        },
+        "Giant Coral Snake": {
+            "HD": 12,
+            "Source": "GoS",
+            "HP": 90
+        },
+        "Giant Subterenean Lizard": {
+            "HD": 7,
+            "Source": "TFoF",
+            "HP": 66
+        },
+        "Giant Walrus": {
+            "HD": 9,
+            "Source": "RotFM",
+            "HP": 85
+        },
+        "Stegosaurus": {
+            "HD": 8,
+            "Source": "VGtM",
+            "HP": 76
+        },
+        "Two-Headed Plesiosaurus": {
+            "HD": 8,
+            "Source": "TTP",
+            "HP": 100
+        }
+    },
+    "CR 5": {
+        "Brontosaurus": {
+            "HD": 9,
+            "Source": "VGtM",
+            "HP": 121
+        },
+        "Giant Crocodile": {
+            "HD": 9,
+            "Source": "BR",
+            "HP": 85
+        },
+        "Giant Shark": {
+            "HD": 11,
+            "Source": "BR",
+            "HP": 126
+        },
+        "Hulking Crab": {
+            "HD": 8,
+            "Source": "SKT",
+            "HP": 76
+        },
+        "Large Subterranean Lizard": {
+            "HD": 9,
+            "Source": "AtG",
+            "HP": 85
+        },
+        "Obliteros": {
+            "HD": 11,
+            "Source": "WDH",
+            "HP": 126
+        },
+        "Swarm of Cranium Rats": {
+            "HD": 8,
+            "Source": "VGtM",
+            "HP": 36
+        },
+        "Triceratops": {
+            "HD": 10,
+            "Source": "BR",
+            "HP": 95
+        }
+    },
+    "CR 6": {
+        "Mammoth": {
+            "HD": 11,
+            "Source": "BR",
+            "HP": 126
+        }
+    },
+    "CR 7": {
+        "Giant Ape": {
+            "HD": 15,
+            "Source": "BR",
+            "HP": 157
+        }
+    },
+    "CR 8": {
+        "Huge Giant Crab": {
+            "HD": 14,
+            "Source": "WPM",
+            "HP": 161
+        },
+        "Sperm Whale": {
+            "HD": 14,
+            "Source": "RotFM",
+            "HP": 189
+        },
+        "Tyrannosaurus Rex": {
+            "HD": 13,
+            "Source": "BR",
+            "HP": 136
+        }
+    }
+}

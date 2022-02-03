@@ -11,7 +11,10 @@
             "CR 1": 2,
             "CR 2": 1
         },
-        "shep": 1
+        "maxBand": 4,
+        "shep": 1,
+        "filter": 0,
+        "desc": "(1A cast) You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose from one of the four bands, and then the DM chooses the creatures."
     },
     "Animals": {
         "gvar": ["5517ee08-0888-479e-be8c-76b7e2f14c40"],
@@ -25,7 +28,10 @@
             "CR 1": 2,
             "CR 2": 1
         },
-        "shep": 1
+        "maxBand": 4,
+        "shep": 1,
+        "filter": 1,
+        "desc": "(1A cast) You summon fey creatures that appear in unoccupied spaces that you can see within range. Choose from one of the four bands, and then the DM chooses the creatures."
     },
     "Minor Elementals": {
         "gvar": ["70e80dae-8b20-4ea7-8e78-170c329917ff"],
@@ -39,48 +45,39 @@
             "CR 1": 2,
             "CR 2": 1
         },
-        "shep": 0
+        "maxBand": 4,
+        "shep": 0,
+        "filter": 0,
+        "desc": "(1M cast) You summon elementals that appear in unoccupied spaces that you can see within range. Choose from one of the four bands, and then the DM chooses the creatures."
     },
     "Fey": {
-        "gvar": ["5517ee08-0888-479e-be8c-76b7e2f14c40", "096f1233-9423-47d7-a5d2-5441746f6c53"],
+        "gvar": ["5517ee08-0888-479e-be8c-76b7e2f14c40", "096f1233-9423-47d7-a5d2-5441746f6c53", "9b9a7dad-6e71-45d6-87a9-0984ffb28600", "c84d0405-6961-4f29-a43c-7583d4546cbf"],
         "level": 4,
-        "interval": 99,
-        "ns": {
-            "CR 0": 1,
-            "CR 1/8": 1,
-            "CR 1/4": 1,
-            "CR 1/2": 1,
-            "CR 1": 1,
-            "CR 2": 1,
-            "CR 3": 1,
-            "CR 4": 1,
-            "CR 5": 1,
-            "CR 6": 1,
-            "CR 7": 1,
-            "CR 8": 1,
-            "CR 9": 1
-        },
-        "shep": 1
+        "interval": 9,
+        "ns": {},
+        "shep": 1,
+        "filter": 1,
+        "maxBand": 11,
+        "desc": "(1M cast) You summon a fey creature of challenge rating 6 or lower, or a fey spirit that takes the form of a beast of challenge rating 6 or lower. It appears in an unoccupied space that you can see within range. The fey creature disappears when it drops to 0 hit points or when the spell ends."
     },
     "Elemental": {
         "gvar": ["70e80dae-8b20-4ea7-8e78-170c329917ff", "f8c366b4-d5ef-400e-9b11-ebb5bb55e054"],
         "level": 4,
-        "interval": 99,
-        "ns": {
-            "CR 0": 1,
-            "CR 1/8": 1,
-            "CR 1/4": 1,
-            "CR 1/2": 1,
-            "CR 1": 1,
-            "CR 2": 1,
-            "CR 3": 1,
-            "CR 4": 1,
-            "CR 5": 1,
-            "CR 6": 1,
-            "CR 7": 1,
-            "CR 8": 1,
-            "CR 9": 1
-        },
-        "shep": 0
+        "interval": 9,
+        "ns": {},
+        "shep": 0,
+        "filter": 1,
+        "maxBand": 11,
+        "desc": "(1M cast) You call forth an elemental servant. Choose an area of air, earth, fire, or water that fills a 10-foot cube within range. An elemental of challenge rating 5 or lower appropriate to the area you chose appears in an unoccupied space within 10 feet of it."
+    },
+    "Celestial": {
+        "gvar": ["79253b92-4721-442b-996e-8e30d8e90ecf"],
+        "level": 7,
+        "interval": 9,
+        "ns": {},
+        "shep": 0,
+        "filter": 0,
+        "maxBand": 8,
+        "desc": "(1M cast) You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range."
     }
 }
