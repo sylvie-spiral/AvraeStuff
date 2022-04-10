@@ -1,0 +1,2 @@
+-d "-1d4[Moon Sickle]" -f "**Moon Sickle**
+When you cast a spell that restores hit points, you can roll a d4 and add the number rolled to the amount of hit points restored, provided you are holding the sickle."
