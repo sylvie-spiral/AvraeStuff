@@ -26,14 +26,14 @@ else:
   for k in aSP.keys():
     v = aSP.get(k)
     kl = k.lower()
-    if a1 in kl:
+    if kl.find(a1) == 0:
       spell = f"""Conjure {k}"""
       ws = v
       its.append(k)
 
-      if a1 == kl:
-        ex = True          
-        break
+    if a1 == kl:
+      ex = True          
+      break
   
   if ex or len(its) == 1:
       ms.append(f'**{spell}**')
@@ -96,7 +96,17 @@ else:
         
         if len(its) > 0:
           ms.append(f"**{j}**")
-          ms.append(", ".join(its))
+
+          col = 0
+          txt = ""
+          for i in its:
+            col = col + 1
+            if col % 2 != 1:
+              txt = txt + "| " + f"{i:35}\n".replace(" "," ")
+            else:
+              txt = txt + f"{i:35}"
+
+          ms.append(f"`{txt}`")
           ms.append("")
 
       ms.append("Use !conjure with the creature the DM chooses.")
@@ -166,7 +176,9 @@ else:
           
           c1 = co.get_combatant(name, True)
           if c1:
-            c1.add_effect(spell, "", duration=600, concentration=True)
+            c1.add_effect(f'spell Caster', "", duration=600, concentration=True)
+            o.append(f"""!i effect "{grp}" "{spell}" -parent "{name}|{spell} Caster" """)
+            
         else:
           t = mul * ns
           ms.append(f"""{t} {mm} respond.""")
