@@ -1,196 +1,100 @@
 multiline
 <drac2>
-o,ms,ch,pa,args = [],[],character(),argparse("&*&"),&ARGS&
+o = []
+ms = []
 
-i,bd,ls = pa.last("i"),int(pa.last("band", -1)),"list" in args
+ch = character()
 
-cr = {1:["CR 0","CR 1/8","CR 1/4"],2:["CR 1/2"],3:["CR 1"],4:["CR 2"],5:["CR 3"],6:["CR 4"],7:["CR 5"],8:["CR 6"],9:["CR 7"],10:["CR 8"],11:["CR 9"]}
-if bd > len(cr):
-  bd = -1
+pa = argparse("&*&")
+ar = [x.lower() for x in &ARGS&]
 
-bhp,grp,aSP = 0,f'CO-{name}',load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
+grp = f"""CO-{name}"""
+aSP = load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
 
-spell,ws = None,None
+#is there an initiative?
+if combat():
+  # are we a Circle of Shepherd druid (!level Druid Shepherd)
+  druid = sClass=load_json(get("subclass", "{}")).get("DruidLevel", "").lower()
+  if druid == "shepherd":
+    # continue
+    if DruidLevel >=6:      
+      ms.append(f"**{name}** is a *Mighty Summoner*")
+      ms.append("Starting at 6th level, beasts and fey that you conjure are more resilient than normal. Any beast or fey summoned or created by a spell that you cast gains the following benefits:")
+      ms.append("* The creature appears with more hit points than normal: 2 extra hit points per Hit Die it has.")
+      ms.append("* The damage from its natural weapons is considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks and damage.")
+      ms.append("")
 
-if len(args) > 1:
-  a1 = args[0].lower()
+      # find the group
+      g = combat().get_group(grp)
+      if g == None:
+        ms.append(f"""Could not find a {grp} group - did you use !conjure?""")
+      else:
+        # find the creature in the dictionaries
+        w = g.combatants[0].monster_name
 
-if (len(args) < 2):
-  ms.append("Supports the following spells:")
-  for t in aSP:
-    ms.append(f"""* {t}""")
-else:
-  its = []
-  ex = False
+        gvars = []
+        for x in aSP:
+          sp = aSP.get(x)
+          if sp.shep:
+            for v in sp.gvar:
+              if not v in gvars:
+                gvars.append(v)
+
+        cr = None
+        for x in gvars:
+          ratings = load_json(get_gvar(x))
+
+          for r in ratings:
+            rat = ratings.get(r)
+            for c in rat:
+              # this will always be an exact match
+              if w == c:
+                cr = rat.get(c)
+                break
+            if cr:
+              break
+
+        its = []
+        nope = []
+
+        if cr == None:
+          ms.append(f"""Couldn't find {w} in database, if it's a beast/fey conjure, contact Technomancers to add it.""")
+        else:
+          gain = (2 * cr.HD)
+          hp = cr.HP + gain
+
+          for i in g.combatants:
+            i.set_maxhp(hp)
+            i.set_hp(hp)
   
-  for k in aSP.keys():
-    v = aSP.get(k)
-    kl = k.lower()
-    if kl.find(a1) == 0:
-      spell = f"""Conjure {k}"""
-      ws = v
-      its.append(k)
+          ms.append(f"""Each {w} gains {gain} hp.""")
 
-    if a1 == kl:
-      ex = True          
-      break
-  
-  if ex or len(its) == 1:
-      ms.append(f'**{spell}**')
-      l = int(pa.last("l", ws.level))
-  else:
-    ms.append(f'The following spells match {a1}:')
-    ms.append("\n".join(its))
-    spell = ""
-
-  if spell and ls:      
-    bs = {}
-    flt = "NO"
-
-    if bd > 0:
-      flt = cr[bd]
-    elif (len(args) > 2):
-      flt = ["CR " + args[2]]
-    else:
-      if ws.filter:
-        ms.append(f"Please specify a CR or band for {spell}.")
-        for x in range(1, ws.maxBand + 1):
-          bd = cr[x]
-          c = bd[0]
-          ns = ws.ns.get(c,1)
-          ms.append(f'* band {x}: {bd} - {ns} respond')
+        for i in g.combatants:
+          if i.creature_type and i.creature_type.lower() in ["beast","fey"]:            
+            i.add_effect("Mighty Summoner", "-magical")
+            its.append(f"{i.name}")
+          else:
+            nope.append(f"{i.name} ({i.creature_type})")
 
         ms.append("")
-        ms.append(f"`!conjure '{a1}' list -band #`")
-      else:
-        flt = []
-        for x in cr:
-          for y in cr[x]:
-            flt.append(y)
         
-    if flt != "NO":
-      g = ws
+        if len(its):
+          ms.append("**Applied to**:")
+          ms.append(", ".join(its))
 
-      for r in flt:
-        bs[r] = []
+        if len(nope):
+          ms.append("**Not applied to**:")
+          ms.append(", ".join(nope))
 
-      for j in ws.gvar:
-        ratings = load_json(get_gvar(j))
-
-        for r in ratings:
-          if not r in flt:
-            continue
-
-          its = bs.get(r)
-        
-          ci = ratings.get(r)
-          for m in ci:
-            ii = ci.get(m)
-            its.append(f"{m} ({ii.Source})")
-
-          bs.update({r: its})
-
-      for j in bs:
-        its = bs[j]
-        its.sort()
-        
-        if len(its) > 0:
-          ms.append(f"**{j}**")
-
-          col = 0
-          txt = ""
-          for i in its:
-            col = col + 1
-            if col % 2 != 1:
-              txt = txt + "| " + f"{i:35}\n".replace(" "," ")
-            else:
-              txt = txt + f"{i:35}"
-
-          ms.append(f"`{txt}`")
-          ms.append("")
-
-      ms.append("Use !conjure with the creature the DM chooses.")
-  elif spell:
-    c = args[1].lower()
-
-    g = 0
-    if i:
-      ms.append("Ignored resources")
-      g = 1
-    elif ch.spellbook.can_cast(spell, l):
-      g = 1
     else:
-      ms.append("Need a long rest? No slot available or not prepared.")
-    
-    its = []
-    ii = None
-    cr = None
-    mm = None
-    ex = 0
-
-    if g:
-      for j in ws.gvar:
-        if ex:
-          break
-
-        rat = load_json(get_gvar(j))
-
-        for r in rat:
-          if ex:
-            break
-
-          am = rat.get(r)
-
-          for m in am:
-            ml = m.lower()            
-            if c in ml:
-              ii = am.get(m)
-              its.append(ii)
-              mm = ml
-              cr = r
-
-              if ml == c:
-                its = [ii]
-                ex = 1
-                break
-          
-      if (ii == None) or (not ex and (len(its)>1)):
-        ms.append(f"""Couldn't find {c} - {len(its)} matches.""")
-      else:
-        if not i:
-          ch.spellbook.use_slot(l)
-          ms.append(ch.spellbook.slots_str(l))
-
-        ns = ws.ns.get(cr,1)
-        mul = 1 + int((l - ws.level) / ws.interval)
-
-        co = combat()
-        if co:
-          g = combat().get_group(grp)
-          if g != None:
-            o.append(f"""!i remove "{grp}" """)
-            ms.append(f"""Removed existing creatures in {grp}""")
-
-          for x in range(0, mul):
-            o.append(f"""!i madd "{mm}" -n {ns} -group "{grp}" -controller {ctx.author} -h """)
-          
-          c1 = co.get_combatant(name, True)
-          if c1:
-            c1.add_effect(f'spell Caster', "", duration=600, concentration=True)
-            o.append(f"""!i effect "{grp}" "{spell}" -parent "{name}|{spell} Caster" """)
-            
-        else:
-          t = mul * ns
-          ms.append(f"""{t} {mm} respond.""")
-    
-    if ws:
-      ms.append(f"""{ws.desc}""")
-
+      ms.append(f"""You need to be at least level 6 to use this ability. Do you need to !update?""")
   else:
-    ms.append(f"""Couldn't find "{a1}" """)
+    ms.append(f"""This command only works for Circle of Shepherd, do you need to !level druid shepherd?""")
+else:
+  ms.append(f"""Apply this in combat after using !conjure to create the {grp} group.""")
 
 dt = "\n".join(ms)
-o.append(f"""!embed -desc "{dt}" -footer {get_gvar("cc2f3710-f08e-4e7a-8f18-476252a1614f")} """)
+o.append(f"""!embed -desc "{dt}" -footer "!mightySummon (use in initiative after conjure) | @SylvieTG#4737" """)
 
 return "\n".join(o)
 </drac2>
