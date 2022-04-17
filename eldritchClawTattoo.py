@@ -53,5 +53,5 @@ out.append(eft)
 ft = " -f ".join(fields)
 text = "\n".join(out)
 
-return f'''-desc "{text}" -title "{ect}" {ft}'''
+return f'''-desc "{text}" -title "{ect}" {ft} -footer "!eldritchClaw [-i][-reset]"'''
 </drac2>

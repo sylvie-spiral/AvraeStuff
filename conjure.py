@@ -176,7 +176,7 @@ else:
           
           c1 = co.get_combatant(name, True)
           if c1:
-            c1.add_effect(f'spell Caster', "", duration=600, concentration=True)
+            c1.add_effect(f'{spell} Caster', "", duration=600, concentration=True)
             o.append(f"""!i effect "{grp}" "{spell}" -parent "{name}|{spell} Caster" """)
             
         else:

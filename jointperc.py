@@ -1,6 +1,9 @@
-!alias jointperc multiline
+c perception
 <drac2>
-args= "&ARGS&"
+pa = argparse("&*&")
+ar = [x.lower() for x in &ARGS&]
+args = &ARGS&
+
 out = []
 ch = character()
 
@@ -10,58 +13,55 @@ their = get("their","their")
 them = get("them","them")
 theirs = get("theirs","theirs")
 
-adv = "adv" in args
-dis = "dis" in args
+adv = "adv" in ar
+dis = "dis" in ar
 
-if ch.skills.perception.adv:
-  adv = True
 
-if adv and dis:
-  adv = 0
-  dis = 0  
-
-# get mod from character sheet
-mod = get_raw().skills.perception
-
-# handle disadvantage, advantage, etc.
-if dis:
-  dice = "2d20kl1+"
-elif adv:
-  dice = "2d20kh1+"
-else:
-  dice = "1d20+"
-
-dice = dice + str(mod) +"[perception]"
-
-if "guide" in args:
-  dice = dice + "+1d4[guidance]"
-
-check = vroll(dice)
-
-msg = f'{name} makes a Perception check!" -desc "{name} looks around the area.'
+out.append(" ".join(args))
 
 mySenses = get('senses')
 
-cmd = f"""!embed """
+if mySenses:
+  if mySenses.find("[")==0:
+    # array
+    mySenses = load_json(mySenses)
+  else:
+    # list
+    mySenses = mySenses.split(",")
 
 if mySenses:
-  cmd = cmd + f'-f "{name} Perception ({mySenses})| {check}" '
-else:
-  cmd = cmd + f'-f "{name} Perception | {check}" '
+  text = ", ".join(mySenses)
+  out.append(f'-f "{name} Perception|Special Senses ({text})" ')
+
+title = f'-title "{name} makes a perception check."'
 
 if get("familiarData"):
   fd = load_json(get("familiarData"))
-  fname = fd.name
-  ftype = fd.type
+
+  if fd:
+    fname = fd.get('name', "[use `!familiar name`]")
+    ftype = fd.get('type', "[use `!familiar set type`]")
 
   allfi = load_json(get_gvar("8623c1d5-c795-4fe3-a812-e008cee66e5a"))
 
   if ftype:
     fi = allfi.get(ftype.lower())
 
+  title = f'-title "{name} makes a perception check aided by {their} familiar {fname} the {ftype}."'
+
   fmod = fi.perception
 
   famSenses = fi.senses
+
+  if famSenses:
+    if famSenses.find("[")==0:
+      # array
+      famSenses = load_json(famSenses)
+    else:
+      # list
+      famSenses =famSenses.split(",")
+
+    famSenses = ", ".join(famSenses)
 
     # so... 1d20+...
   mods = str(fmod) + "[perception]"
@@ -73,14 +73,12 @@ if get("familiarData"):
   else:
     dice = f"""1d20+{mods}"""
 
-  msg = f'{name} makes a Perception check!" -desc "{name} looks around the area, while {their} familiar, {fname} - the {ftype}, keeps watch.'
-  
   a = vroll(dice)
 
   if famSenses:
-    cmd = cmd + f'-f "{fname} Pereception ({famSenses})| {a}" '
+    out.append(f'-f "{fname} Perception ({famSenses})| {a}"')
   else:
-    cmd = cmd + f'-f "{fname} Pereception | {a}" '
+    out.append(f'-f "{fname} Perception | {a}"')
 
   # if the familiar has at least one keen sense...
   if (len(fi.keen) > 0):
@@ -89,7 +87,7 @@ if get("familiarData"):
       b = int(a.raw.left.left.values[0].values[0])
       v = vroll(f"""{b}+{fmod}""")
 
-      cmd = cmd + f"""-f "{fname} - {fi.keen} | {v}" """
+      out.append(f"""-f "{fname} - {fi.keen} | {v}" """)
     elif not adv:
       # if we rolled at advantage, we're done - otherwise keep the die we rolled above,
       # and roll one additional die for the keen sense - keeping the high
@@ -97,9 +95,13 @@ if get("familiarData"):
 
       dice = f"""({b},d20)kh1+{fmod}"""
       b = vroll(dice)
-      cmd = cmd + f"""-f "{fname} - {fi.keen} (advantage) | {b}" """
-cmd = cmd + f' -title "{msg}"'
-out.append(cmd)
+      out.append(f"""-f "{fname} - {fi.keen} (advantage) | {b}" """)
+else:
+  out.append('''-f "Error|Please use `!familiar set <creature type>` and `!familiar set <familiar name>` before using this alias."''')
 
-return "\n".join(out)
+out.append(f'''-f "help | !jointPerc [applicable snippets to your own check]"''')
+out.append(title)
+
+return " ".join(out)
 </drac2>
+-color <color> -thumb <image> 
