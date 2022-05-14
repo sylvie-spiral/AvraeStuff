@@ -58,11 +58,6 @@
             "HD": 11,
             "Source": "CM",
             "HP": 82
-        },
-        "Isolde": {
-            "HD": 11,
-            "Source": "VRGtR",
-            "HP": 82
         }
     },
     "CR 6": {
@@ -75,19 +70,9 @@
             "HD": 15,
             "Source": "ERftLW",
             "HP": 82
-        },
-        "Endelyn Moongrave": {
-            "HD": 12,
-            "Source": "TWBtW",
-            "HP": 114
         }
     },
-    "CR 7": {
-        "Bavlorna Blightstraw": {
-            "HD": 13,
-            "Source": "TWBtW",
-            "HP": 110
-        },
+    "CR 7": {        
         "Bheur Hag": {
             "HD": 91,
             "Source": "VGtM",
@@ -97,18 +82,6 @@
             "HD": 11,
             "Source": "VGtM",
             "HP": 93
-        },
-        "Smiler the Defiler": {
-            "HD": 22,
-            "Source": "BGDiA",
-            "HP": 165
-        }
-    },
-    "CR 8": {
-        "Skabatha Nightshade": {
-            "HD": 20,
-            "Source": "TWBtW",
-            "HP": 150
         }
     },
     "CR 9": {

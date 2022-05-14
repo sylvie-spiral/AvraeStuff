@@ -7,7 +7,7 @@
         }
     },
     "CR 1/8": {
-        "Kharga": {
+        "Khargra": {
             "HD": 2,
             "Source": "MFFV1",
             "HP": 11
@@ -118,11 +118,6 @@
         "Gargoyle": {
             "HD": 7,
             "Source": "BR",
-            "HP": 52
-        },
-        "Lady Gondafrey": {
-            "HD": 7,
-            "Source": "WDH",
             "HP": 52
         }
     }

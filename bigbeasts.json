@@ -39,16 +39,6 @@
             "HD": 12,
             "Source": "BR",
             "HP": 90
-        },
-        "Sahuagin Hatchling Swarm": {
-            "HD": 8,
-            "Source": "GoS",
-            "HP": 52
-        },
-        "Swarm of Scarabs": {
-            "HD": 5,
-            "Source": "VRGtR",
-            "HP": 27
         }
     },
     "CR 4": {
@@ -62,7 +52,7 @@
             "Source": "GoS",
             "HP": 90
         },
-        "Giant Subterenean Lizard": {
+        "Giant Subterranean Lizard": {
             "HD": 7,
             "Source": "TFoF",
             "HP": 66
@@ -113,11 +103,6 @@
             "HD": 11,
             "Source": "WDH",
             "HP": 126
-        },
-        "Swarm of Cranium Rats": {
-            "HD": 8,
-            "Source": "VGtM",
-            "HP": 36
         },
         "Triceratops": {
             "HD": 10,

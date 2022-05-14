@@ -50,11 +50,6 @@
             "Source": "BR",
             "HP": 1
         },
-        "Pollenella the Honeybee": {
-            "HD": 1,
-            "Source": "TWBtW",
-            "HP": 1
-        },
         "Pig": {
             "HD": 1,
             "Source": "SKT",
@@ -409,11 +404,6 @@
             "Source": "BR",
             "HP": 11
         },
-        "Guthash": {
-            "HD": 2,
-            "Source": "TSC",
-            "HP": 16
-        },
         "Hadrosaurus": {
             "HD": 3,
             "Source": "VGtM",
@@ -453,26 +443,6 @@
             "HD": 2,
             "Source": "VGtM",
             "HP": 15
-        },
-        "Swarm of Bats": {
-            "HD": 5,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Rats": {
-            "HD": 7,
-            "Source": "BR",
-            "HP": 24
-        },
-        "Swarm of Rats (Diseased Variant)": {
-            "HD": 7,
-            "Source": "THSoT",
-            "HP": 24
-        },
-        "Swarm of Ravens": {
-            "HD": 7,
-            "Source": "BR",
-            "HP": 24
         },
         "Velociraptor": {
             "HD": 3,
@@ -553,36 +523,6 @@
         },
         "Reef Shark": {
             "HD": 4,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Insects": {
-            "HD": 5,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Insects (Beetles)": {
-            "HD": 5,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Insects (Centipedes)": {
-            "HD": 5,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Insects (Spiders)": {
-            "HD": 5,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Insects (Wasps)": {
-            "HD": 5,
-            "Source": "BR",
-            "HP": 22
-        },
-        "Swarm of Rot Grubs": {
-            "HD": 5,
             "Source": "BR",
             "HP": 22
         },
@@ -678,20 +618,10 @@
             "Source": "EGtW",
             "HP": 39
         },
-        "Sangzor": {
-            "HD": 3,
-            "Source": "CoS",
-            "HP": 33
-        },
         "Spider King": {
             "HD": 4,
             "Source": "OotA",
             "HP": 44
-        },
-        "Swarm of Quippers": {
-            "HD": 8,
-            "Source": "BR",
-            "HP": 28
         },
         "Tiger": {
             "HD": 5,
@@ -704,7 +634,7 @@
             "HP": 19
         }
     },
-    "CR2": {
+    "CR 2": {
         "Allosaurus": {
             "HD": 6,
             "Source": "BR",
@@ -789,16 +719,6 @@
             "HD": 7,
             "Source": "BR",
             "HP": 52
-        },
-        "Swarm of Maggots": {
-            "HD": 5,
-            "Source": "VRGTR",
-            "HP": 22
-        },
-        "Swarm of Poisonous Snakes": {
-            "HD": 8,
-            "Source": "BR",
-            "HP": 36
         }
     }
 }
