@@ -10,8 +10,9 @@ for x in companions:
   if entry.active:
     #add to initiative
     n = entry.name.replace('"', '\\"')
+    a = entry.name.replace('"', '\\"')
     num += 1
-    out.append(f'''!i madd "{entry.creature}" -name "{n}" ''')
+    out.append(f'''!i madd "{entry.creature}" -name "{n}" -conctroller "{a}"''')
 
 if 0 == num:
     out.append(f'''!embed -Title "<name> needs to add companions first." -Desc "Use `!companion add` or `!companion active` before using `!companion init`." -thumb <image> -color <color>''')

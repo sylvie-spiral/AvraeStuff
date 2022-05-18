@@ -9,7 +9,7 @@
     "CR 1/8": {
         "Boggle": {
             "HD": 4,
-            "Source": "BR",
+            "Source": "MotM",
             "HP": 18
         },
         "Brigganock": {
@@ -48,7 +48,7 @@
     "CR 1/2": {
         "Darkling": {
             "HD": 3,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 13
         },
         "Reflections": {
@@ -93,9 +93,14 @@
             "Source": "BR",
             "HP": 22
         },
+        "Nilbog": {
+            "HD": 2,
+            "Source": "MotM",
+            "HP": 7
+        },
         "Quickling": {
             "HD": 3,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 10
         },
         "Satyr Reveler": {
@@ -112,8 +117,14 @@
     "CR 2": {
         "Darkling Elder": {
             "HD": 5,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 27
+        },
+        "Hobgoblin Iron Shadow":
+        {
+            "HD": 5,
+            "Source": "MotM",
+            "HP": 32
         },
         "Meenlock": {
             "HD": 7,

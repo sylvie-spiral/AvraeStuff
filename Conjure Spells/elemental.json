@@ -2,7 +2,7 @@
     "CR 3": {
         "Flail Snail": {
             "HD": 5,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 52
         },
         "Water Weird": {
@@ -105,22 +105,22 @@
     "CR 7": {
         "Air Elemental Myrmidon": {
             "HD": 18,
-            "Source": "PotA",
+            "Source": "MotM",
             "HP": 117
         },
         "Earth Elemental Myrmidon": {
             "HD": 17,
-            "Source": "PotA",
+            "Source": "MotM",
             "HP": 127
         },
         "Fire Elemental Myrmidon": {
             "HD": 19,
-            "Source": "PotA",
+            "Source": "MotM",
             "HP": 123
         },
         "Water Elemental Myrmidon": {
             "HD": 17,
-            "Source": "PotA",
+            "Source": "MotM",
             "HP": 127
         },
         "Fluxcharger": {
@@ -139,7 +139,7 @@
     "CR 9": {
         "Frost Salamander": {
             "HD": 16,
-            "Source": "MToF",
+            "Source": "MotM",
             "HP": 168
         }
     }

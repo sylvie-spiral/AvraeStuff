@@ -1,5 +1,10 @@
 {
     "CR 3": {
+        "Dolphin Delighter":{
+            "HD":5,
+            "Source":"MotM",
+            "HP":27
+        },
         "Forlarren": {
             "HD": 6,
             "Source": "MFFV1",
@@ -22,7 +27,7 @@
         },
         "Redcap": {
             "HD": 6,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 45
         },
         "Siren": {
@@ -32,6 +37,12 @@
         }
     },
     "CR 4": {
+        "Hobgoblin Devastator":
+        {
+            "HD": 7,
+            "Source":"MtoM",
+            "HP":45
+        },
         "Oread": {
             "HD": 9,
             "Source": "MOoT",
@@ -44,7 +55,7 @@
         },
         "Yeth Hound": {
             "HD": 6,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 51
         }
     },
@@ -62,9 +73,9 @@
     },
     "CR 6": {
         "Annis Hag": {
-            "HD": 10,
-            "Source": "VGtM",
-            "HP": 75
+            "HD": 12,
+            "Source": "MotM",
+            "HP": 90
         },
         "Dusk Hag": {
             "HD": 15,
@@ -75,12 +86,12 @@
     "CR 7": {        
         "Bheur Hag": {
             "HD": 91,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 91
         },
         "Korred": {
             "HD": 11,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 93
         }
     },

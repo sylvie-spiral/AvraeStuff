@@ -69,10 +69,12 @@ if combat():
   
           ms.append(f"""Each {w} gains {gain} hp.""")
 
-        for i in g.combatants:
-          if i.creature_type and i.creature_type.lower() in ["beast","fey"]:            
-            i.add_effect("Mighty Summoner", "-magical")
-            its.append(f"{i.name}")
+        for i in g.combatants:          
+          if i.creature_type:
+            ltype = i.creature_type.lower()
+            if "beast" in ltype or "fey" in ltype:
+              i.add_effect("Mighty Summoner", "-magical")
+              its.append(f"{i.name}")
           else:
             nope.append(f"{i.name} ({i.creature_type})")
 

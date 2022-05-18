@@ -39,6 +39,12 @@
             "HD": 12,
             "Source": "BR",
             "HP": 90
+        },
+        "Young Horizonback Tortoise":
+        {
+            "HD":8,
+            "Source": "CRCotN",
+            "HP":68
         }
     },
     "CR 4": {
@@ -64,7 +70,7 @@
         },
         "Stegosaurus": {
             "HD": 8,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 76
         },
         "Two-Headed Plesiosaurus": {
@@ -76,7 +82,7 @@
     "CR 5": {
         "Brontosaurus": {
             "HD": 9,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 121
         },
         "Giant Crocodile": {
@@ -108,6 +114,11 @@
             "HD": 10,
             "Source": "BR",
             "HP": 95
+        },
+        "Moonshark":{
+            "HD":11,
+            "Source":"CRCotN",
+            "HP":126
         }
     },
     "CR 6": {

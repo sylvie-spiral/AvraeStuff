@@ -35,17 +35,21 @@ if combat():
         ms.append(f"""Could not find a {grp} group - did you use !conjure?""")
       else:
         for i in g.combatants:
-          if (i.creature_type in ['fey','beast']):
-            ef = i.get_effect("Spirit Totem Aura:")
-            if not ef:
-              nope.append(f"{i.name} (No Aura)")
-            if i.hp <= 0:
-              nope.append(f"{i.name} (Dead)")
+          if i.creature_type:
+            ltype = i.creature_type.lower()
+            if "fey" in ltype or "beast" in ltype:
+              ef = i.get_effect("Spirit Totem Aura:")
+              if not ef:
+                nope.append(f"{i.name} (No Aura)")
+              if i.hp <= 0:
+                nope.append(f"{i.name} (Dead)")
+              else:
+                i.damage(f"-{heal}[healing]")
+                its.append(f"{i.name} ({i.hp}/{i.max_hp})")
             else:
-              i.damage(f"-{heal}[healing]")
-              its.append(f"{i.name} ({i.hp}/{i.max_hp})")
+              nope.append(f"{i.name} ({i.creature_type})")
           else:
-            nope.append(f"{i.name} ({i.creature_type})")
+            nope.append(f"{i.name} (no creature type)")
 
       ms.append("")
       

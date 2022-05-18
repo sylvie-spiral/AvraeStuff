@@ -205,11 +205,6 @@
             "Source": "BR",
             "HP": 1
         },
-        "Cranium Rat": {
-            "HD": 1,
-            "Source": "VGtM",
-            "HP": 2
-        },
         "Eagle": {
             "HD": 1,
             "Source": "BR",
@@ -239,7 +234,7 @@
         },
         "Dolphin": {
             "HD": 2,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 11
         },
         "Flying Snake": {
@@ -326,12 +321,12 @@
         },
         "Deep Rothé": {
             "HD": 2,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 13
         },
         "Dimetrodon": {
             "HD": 3,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 19
         },
         "Draft Horse": {
@@ -406,12 +401,12 @@
         },
         "Hadrosaurus": {
             "HD": 3,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 19
         },
         "Ox": {
             "HD": 2,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 15
         },
         "Panther": {
@@ -446,7 +441,7 @@
         },
         "Velociraptor": {
             "HD": 3,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 10
         },
         "Walrus": {
@@ -545,7 +540,7 @@
         },
         "Deinonychus": {
             "HD": 4,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 26
         },
         "Dire Wolf": {
@@ -642,7 +637,7 @@
         },
         "Aurochs": {
             "HD": 4,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 38
         },
         "Cave Bear": {
@@ -702,7 +697,7 @@
         },
         "Quetzalcoatlus": {
             "HD": 4,
-            "Source": "VGtM",
+            "Source": "MotM",
             "HP": 30
         },
         "Relic Sloth": {

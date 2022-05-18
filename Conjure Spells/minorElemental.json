@@ -61,6 +61,11 @@
             "Source": "BR",
             "HP": 17
         },
+        "Firenewt Warrior": {
+            "HD": 5,
+            "Source": "MotM",
+            "HP":27
+        },
         "Dust Mephit (Summoner Variant)": {
             "HD": 5,
             "Source": "MM",
@@ -102,6 +107,16 @@
             "HD": 3,
             "Source": "GGtR",
             "HP": 22
+        },
+        "Firenewt Warlock of Imix":{
+            "HD":6,
+            "Source": "MotM",
+            "HP":33
+        },
+        "Giant Strider":{
+            "HD":3,
+            "Source":"MotM",
+            "HP":22
         }
     },
     "CR 2": {
