@@ -7,15 +7,8 @@ args = &ARGS&
 out = []
 ch = character()
 
-#follow character's pronouns if !pronouns has been used
-they = get("they","they")
-their = get("their","their")
-them = get("them","them")
-theirs = get("theirs","theirs")
-
 adv = "adv" in ar
 dis = "dis" in ar
-
 
 out.append(" ".join(args))
 
@@ -47,7 +40,7 @@ if get("familiarData"):
   if ftype:
     fi = allfi.get(ftype.lower())
 
-  title = f'-title "{name} makes a perception check aided by {their} familiar {fname} the {ftype}."'
+  title = f'-title "<name> makes a perception check aided by <their> familiar {fname} the {ftype}."'
 
   fmod = fi.perception
 
