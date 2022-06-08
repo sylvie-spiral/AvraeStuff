@@ -2,28 +2,31 @@ embed <drac2>
 companions = load_json(get('companions', "{}"))
 out,args,pa = [],&ARGS&,argparse("&*&".lower())
 
-name = pa.last("name")
-perception = pa.last("p")
-creature = pa.last("creature")
-x = {}
-x.perception = perception
-x.creature = creature
+cname = pa.last("name", None)
+perception = pa.last("p", None)
+creature = pa.last("creature", None)
+senses = pa.last("senses")
+keen = pa.last("keen")
 
-x.senses = args.get("senses")
-x.keen = args.get("keen")
-x.active = True
-
-if not (name and perception and creature):
+if not (cname and perception and creature):
   out.append('''-f "You must specify:|* -name - the creature's name (quoted if it contains spaces)
 * -p - the creature's perception bonus (or wis bonus if it isn't listed)
 * -creature - what it is (warhorse, etc.)" -f "You may also specify:|* -senses - the creature's senses (quoted if there is a space)
-* -keen - the creature's keen senses, if any (quoted if there is a space)''')
-if companions[name]:
-  # updating a companion
-  companions[name] = x
+* -keen - the creature's keen senses, if any (quoted if there is a space)"''')
 else:
-  # adding a new companion
-  companions.add(name, x)
+  x = {}
+  x["perception"]=perception
+  x["creature"]=creature
+
+  if senses:
+    x["senses"]=senses
+
+  if keen:
+    x["keen"]= keen
+    
+  x["active"]= True
+
+  companions[cname] = x
 
 character().set_cvar('companions', dump_json(companions))
 
@@ -31,4 +34,4 @@ help = """!companion add <-name \\"name\\"> <-p #> <-creature CreatureName> [-se
 
 text = " ".join(out)
 return f"""-footer "{help}" {out}"""
-</drac2> -title "<name> adds <their> companion <name>" -color <color> -thumb <image>
+</drac2> -title "<name> adds <their> companion <cname>" -color <color> -thumb <image>
