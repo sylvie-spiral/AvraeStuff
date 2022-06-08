@@ -82,17 +82,17 @@ if get("familiarData"):
 
   # if the familiar has at least one keen sense...
   if (len(fi.keen) > 0):
+    # this is the first die in the vroll result.
+    b = int(a.raw.left.left.values[0].values[0])
+    
     if dis:
       # we rolled two dice for its perception, but for the keen sense, only the first counts.
-      b = int(a.raw.left.left.values[0].values[0])
       v = vroll(f"""{b}+{fmod}""")
 
       out.append(f"""-f "{fname} - {fi.keen} | {v}" """)
     elif not adv:
       # if we rolled at advantage, we're done - otherwise keep the die we rolled above,
       # and roll one additional die for the keen sense - keeping the high
-      b = int(a.raw.left.left.values[0].values[0])
-
       dice = f"""({b},d20)kh1+{fmod}"""
       b = vroll(dice)
       out.append(f"""-f "{fname} - {fi.keen} (advantage) | {b}" """)
