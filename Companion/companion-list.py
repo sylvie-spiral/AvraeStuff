@@ -10,7 +10,7 @@ for x in companions:
   if entry.active:
     status = "active"
 
-  out.append(f'''-f "{x}|{entry.type} - {status}"''')
+  out.append(f'''-f "{x}|{entry.creature} - {status}"''')
 
 if len(companions) == 0:
   out.append('-f"No Companions Found|Use `!companion add` to add them first."')
