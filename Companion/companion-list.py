@@ -16,4 +16,4 @@ if len(companions) == 0:
   out.append('-f"No Companions Found|Use `!companion add` to add them first."')
 
 return '-desc "Your companions are:" ' + " ".join(out)
-</drac2>  -title "<name> checks their companions" -color <color> -thumb <image>
+</drac2>  -title "<name> checks <their> companions" -color <color> -thumb <image>

@@ -1,12 +1,17 @@
 embed <drac2>
 companions = load_json(get('companions', "{}"))
 out,args,pa = [],&ARGS&,argparse("&*&".lower())
+help = """!companion activate <\\"name\\">"""
+text = ""
 
-cname = pa.last("name")
+if (len(args)) == 0:
+  return f"""-desc "You need to specify at least a partial name for the companion to activate." -footer "{help}" {text}"""
+
+cname = args[0]
 matches = []
 
 for creature in companions:
-  if cname in creature:
+  if cname.lower() in creature.lower():
     matches.append(creature)
 
 for creature in matches:
