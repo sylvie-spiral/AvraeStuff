@@ -19,7 +19,7 @@ for creature in matches:
   x = companions[creature]
   x["active"] = False
   out.append(f'''-f "{creature}| {creature} is now inactive."''')
-  companions["name"] = x
+  companions[creature] = x
 
 if len(matches) == 0:
   out.append(f'''-desc "{cname} wasn't found among companion creatures."''')
