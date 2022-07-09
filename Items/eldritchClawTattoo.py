@@ -34,7 +34,7 @@ if hasResource:
   out.append(f"{ch.name} activates {their} Eldritch Claw Tattoo as a bonus action.")
   if c and c.me:
     # Add a marker effect
-    c.me.add_effect(ect, "", duration=10, desc=eft)
+    c.me.add_effect(ect, duration=10, desc=eft)
   else:
     if c:
       out.append("You are not in the current combat, please `!i join` and repeat with -i")

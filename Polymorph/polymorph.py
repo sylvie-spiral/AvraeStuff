@@ -46,11 +46,11 @@ if c:
       real = c.me
       isSelf = True
 
-  isSelf = (real.name == name)
+  isSelf = (real) and (real.name == name)
 
-if isSelf:
-  ms.append(f"*{name} casts Polymorph!*")
-elif real:
+#if isSelf:
+#  ms.append(f"*{name} casts Polymorph!*")
+if real:
   ms.append(f"*{name} casts Polymorph on {real.name}!*")
   tl = real.levels.total_level
   ok = True
@@ -66,7 +66,10 @@ if isSelf:
   fail = True
 
 if len(creature) == 0:
-  ms.append(f'You need to specify -c <creature> such as `!polymorph -c Wolf`')
+  ms.append(f'You need to specify `-c <creature>` such as `!polymorph -c Wolf`')
+  ms.append(f'You can use `-f` to make the saving throw automatically fail on a willing target.')
+  ms.append(f'You do not need to use `-f` if you are targetting yourself.')
+  ms.append(f'Use `-t target` to target someone or something else, `-l` to use a higher level slot or `-i` to ignore requirements')
 elif i or ch.spellbook.can_cast("Polymorph", l):
   ex,its, ii = 0, [], None
 
@@ -148,7 +151,7 @@ The target's gear melds into the new form. The creature can't activate, use, wie
           ft = "**succeeded!**"
         ms.append(f'*{real}*: {r} - DC {dc} - {ft}')
 
-        if fail:          
+        if fail:
           grp = f'POLY-{real.name}'
           real.set_group(grp)
 
@@ -163,7 +166,7 @@ The target's gear melds into the new form. The creature can't activate, use, wie
             o.append(f'!i effect "{grp}" Polymorph -conc -parent "{name}|Polymorph Caster"')
 
           if c.me:
-            c.me.add_effect("Polymorph Caster", "", duration = 600, concentration=True, desc="If concentration is ended, caster needs to run `!polymorph end`")
+            c.me.add_effect("Polymorph Caster", duration = 600, concentration=True, desc="If concentration is ended, caster needs to run `!polymorph end`")
 
           o.append(f'!monimage {creature}')
   else:
@@ -177,7 +180,7 @@ extra = ""
 if len(fields):
   "-f ".join(fields)
 
-o.append(f"""!embed -desc "{dt}" -footer "!polymorph <-c creature> [-l #] [-i] [-t target] | !polymorph end [-d #] [-t target]" {extra}""")
+o.append(f"""!embed -desc "{dt}" -footer "!polymorph <-c creature> [-l #] [-i] [-t target] [-f] | !polymorph end [-d #] [-t target]" {extra}""")
 o.reverse()
 return "\n".join(o)
 </drac2>
