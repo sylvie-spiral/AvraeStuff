@@ -17,6 +17,10 @@ note = "Condition Immunities charmed, exhaustion, poisoned, frightened | Darkvis
 ignoredUses = False
 usedSpell = False
 
+charPrefix = ch.name[0:2].upper()
+groupName = f"{charPrefix}Group"
+itemName = f"{charPrefix}-Dancing Item"
+
 parsedArgs = argparse("&*&")
 spellSlot = parsedArgs.last("l", 0, int)
 
@@ -73,11 +77,13 @@ else:
     if (com):
       #continue if the player is in combat
       if (com.me):
-        groupName = "AP-" + com.me.name
         com.me.set_group(groupName)
-        cmd = f"""{ctx.prefix}i madd "{creatureName}" -group "{groupName}" -hp {ch.cc(ccHP).max} -c "{ch.name}" -note "{note}" -h"""
-       
-        out.append(cmd) 
+        #cmd = f"""{ctx.prefix}i madd "{creatureName}" -group "{groupName}" -hp {ch.cc(ccHP).max} -c "{ch.name}" -note "{note}" -h"""
+        cmd = f"""{ctx.prefix}i add 0 "{itemName}" -ac 16 -hp {10+(5*bardLevel)} -pb {proficiencyBonus} -strength 18 -dexterity 14 -constituion 16 -intelligence 4 -wisdom 10 -charisma 6 -immune poison -immune psychic -cr {proficiencyBonus} -type construct -note "Immune to Charmed, exhaustion, poisoned, frightened, spells/effects that alter form. 60' darkvision, immutable form. When any creature starts the turn within 10', the walking speed is increased or decreased (your choice) by 10 feet." -controller {ctx.author} -group {groupName}"""
+        out.append(cmd)
+
+        cmd = f"""{ctx.prefix}i effect "{itemName}" "Force-Empowered Slam" -attack "{ch.spellbook.sab}|1d10+{proficiencyBonus}[magical force]|{itemName} performs a Force Empowered Slam!" """
+        out.append(cmd)
 
 usesMessage = ""
 

@@ -124,8 +124,9 @@ The target's gear melds into the new form. The creature can't activate, use, wie
         
         el = ", ".join(cr)
         ms.append(f"Eligible CRs: {el}")
-      else:
-        ms.append(f'Found creature {its[0]}')
+      else:        
+        creature = its[0]
+        ms.append(f'Found creature {creature}')
         if not i:
           ch.spellbook.cast("Polymorph", l)
 
@@ -159,7 +160,7 @@ The target's gear melds into the new form. The creature can't activate, use, wie
           if isSelf:
             extra = """-note "Needs a !ms con after damage (concentration)" """
 
-          o.append(f'!i madd {creature} -group {grp} -controller {ctx.author} -h {extra}')
+          o.append(f'!i madd "{creature}" -group {grp} -controller {ctx.author} -h {extra}')
           if not isSelf:
             o.append(f'!i effect "{grp}" Polymorph -parent "{name}|Polymorph Caster"')
           else:
@@ -168,7 +169,7 @@ The target's gear melds into the new form. The creature can't activate, use, wie
           if c.me:
             c.me.add_effect("Polymorph Caster", duration = 600, concentration=True, desc="If concentration is ended, caster needs to run `!polymorph end`")
 
-          o.append(f'!monimage {creature}')
+          o.append(f'!monimage "{creature}"')
   else:
     ms.append(f'Not currently in combat. (repeat with -i when combat happens)')    
 elif not i:
