@@ -1,6 +1,7 @@
 multiline
 <drac2>
 o,ms,ch,pa,args,c = [],[],character(),argparse("&*&"),&ARGS&,combat()
+ex,its, ii = 0, [], None
 t = pa.last("t", name)
 l = max(int(pa.last("l", 4)),4)
 i = pa.last("i")
@@ -47,11 +48,20 @@ if c:
       isSelf = True
 
   isSelf = (real) and (real.name == name)
+else:
+  if t == name:
+    real = ch
+    isSelf = True
+  else:
+    ms.append(f"Outside of combat can't enforce CR except on self.")
 
 #if isSelf:
 #  ms.append(f"*{name} casts Polymorph!*")
 if real:
-  ms.append(f"*{name} casts Polymorph on {real.name}!*")
+  if isSelf:
+    ms.append(f"*{name} casts Polymorph on themself!*")
+  else:
+    ms.append(f"*{name} casts Polymorph on {real.name}!*")
   tl = real.levels.total_level
   ok = True
 else:
@@ -70,9 +80,8 @@ if len(creature) == 0:
   ms.append(f'You can use `-f` to make the saving throw automatically fail on a willing target.')
   ms.append(f'You do not need to use `-f` if you are targetting yourself.')
   ms.append(f'Use `-t target` to target someone or something else, `-l` to use a higher level slot or `-i` to ignore requirements')
+  ok = False
 elif i or ch.spellbook.can_cast("Polymorph", l):
-  ex,its, ii = 0, [], None
-
   ms.append(f"""This spell transforms a creature that you can see within range into a new form. An unwilling creature must make a Wisdom saving throw to avoid the effect. The spell has no effect on a shapechanger or a creature with 0 hit points.
 
 The transformation lasts for the duration, or until the target drops to 0 hit points or dies. The new form can be any beast whose challenge rating is equal to or less than the target's (or the target's level, if it doesn't have a challenge rating). The target's game statistics, including mental ability scores, are replaced by the statistics of the chosen beast. It retains its alignment and personality.
@@ -83,97 +92,98 @@ The creature is limited in the actions it can perform by the nature of its new f
 
 The target's gear melds into the new form. The creature can't activate, use, wield, or otherwise benefit from any of its equipment.)""")
 
-  if c:
-    if ok:
-      for lv in range(2, tl + 1):
-        cr.append(f'CR {lv}')
+if len(creature) > 0:
+  for lv in range(2, tl + 1):
+    cr.append(f'CR {lv}')
 
-      for j in lists:
-        if ex:
-          break
+  for j in lists:
+    if ex:
+      break
 
-        rat = load_json(get_gvar(j))
+    rat = load_json(get_gvar(j))
 
-        for r in rat:
-          if not r in cr:
-            continue
-          
-          if ex:
+    for r in rat:
+      if not r in cr:
+        continue
+      
+      if ex:
+        break
+
+      am = rat.get(r)
+
+      for m in am:
+        ml = m.lower()
+        if creature in ml:
+          ii = m
+          its.append(m)
+          mm = ml
+          act_cr = r
+
+          if ml == creature:
+            its = [m]
+            ex = 1
             break
 
-          am = rat.get(r)
+  if (len(its)>1) or (len(its) == 0):
+    ms.append(f"""Couldn't find {creature} - {len(its)} matches.""")
+    if (len(its) <= 5):
+      for j in its:
+        ms.append(f"* {j}")
+    
+    el = ", ".join(cr)
+    ms.append(f"Eligible CRs: {el}")
+  else:        
+    creature = its[0]
+    ms.append(f'Found creature {creature}')
+    if not i:
+      ch.spellbook.cast("Polymorph", l)
 
-          for m in am:
-            ml = m.lower()
-            if creature in ml:
-              ii = m
-              its.append(m)
-              mm = ml
-              cr = r
+  if c and len(its) == 1:
+    r = real.save("wis",adv)
+    dc = ch.spellbook.dc
+    if fail:
+      r = 0
+    elif not isSelf:
+      if r.total >= ch.spellbook.dc:
+        fail = False
+      else:
+        fail = True
+    
+    if isSelf:
+      fail = True
+      ft = "**Cast on Self**"
+    elif r == 0:
+      fail = True
+      ft = "**Specified -fail to autofail**"
+    elif fail:
+      ft = "**Failed!**"
+    else:
+      ft = "**succeeded!**"
+    ms.append(f'*{real}*: {r} - DC {dc} - {ft}')
 
-              if ml == creature:
-                its = [m]
-                ex = 1
-                break
-            
-      if (len(its)>1) or (len(its) == 0):
-        ms.append(f"""Couldn't find {creature} - {len(its)} matches.""")
-        if (len(its) <= 5):
-          for j in its:
-            ms.append(f"* {j}")
-        
-        el = ", ".join(cr)
-        ms.append(f"Eligible CRs: {el}")
-      else:        
-        creature = its[0]
-        ms.append(f'Found creature {creature}')
-        if not i:
-          ch.spellbook.cast("Polymorph", l)
+    if fail:
+      grp = f'POLY-{real.name}'
+      real.set_group(grp)
 
-        r = real.save("wis",adv)
-        dc = ch.spellbook.dc
-        if fail:
-          r = 0
-        elif not isSelf:
-          if r.total >= ch.spellbook.dc:
-            fail = False
-          else:
-            fail = True
-        
-        if isSelf:
-          fail = True
-          ft = "**Cast on Self**"
-        elif r == 0:
-          fail = True
-          ft = "**Specified -fail to autofail**"
-        elif fail:
-          ft = "**Failed!**"
-        else:
-          ft = "**succeeded!**"
-        ms.append(f'*{real}*: {r} - DC {dc} - {ft}')
+      extra = ""
+      if isSelf:
+        extra = """-note "Needs a !ms con after damage (concentration)" """
 
-        if fail:
-          grp = f'POLY-{real.name}'
-          real.set_group(grp)
+      o.append(f'!i madd "{creature}" -group {grp} -controller {ctx.author} -h {extra}')
+      if not isSelf:
+        o.append(f'!i effect "{grp}" Polymorph -parent "{name}|Polymorph Caster"')
+      else:
+        o.append(f'!i effect "{grp}" Polymorph -conc -parent "{name}|Polymorph Caster"')
 
-          extra = ""
-          if isSelf:
-            extra = """-note "Needs a !ms con after damage (concentration)" """
+      if c.me:
+        c.me.add_effect("Polymorph Caster", duration = 600, concentration=True, desc="If concentration is ended, caster needs to run `!polymorph end`")
 
-          o.append(f'!i madd "{creature}" -group {grp} -controller {ctx.author} -h {extra}')
-          if not isSelf:
-            o.append(f'!i effect "{grp}" Polymorph -parent "{name}|Polymorph Caster"')
-          else:
-            o.append(f'!i effect "{grp}" Polymorph -conc -parent "{name}|Polymorph Caster"')
-
-          if c.me:
-            c.me.add_effect("Polymorph Caster", duration = 600, concentration=True, desc="If concentration is ended, caster needs to run `!polymorph end`")
-
-          o.append(f'!monimage "{creature}"')
-  else:
-    ms.append(f'Not currently in combat. (repeat with -i when combat happens)')    
+      o.append(f'!monimage "{creature}"')
 elif not i:
   ms.append(f"Can't cast at {l} - {ch.spellbook.slots_str(l)}")
+
+if not c:
+  ms.append(f'Not currently in combat. (repeat with -i when combat happens)')    
 
 
 dt = "\n".join(ms)
