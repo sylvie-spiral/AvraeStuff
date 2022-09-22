@@ -1,7 +1,7 @@
 multiline
 <drac2>
 o,ms,ch,pa,args,c = [],[],character(),argparse("&*&"),&ARGS&,combat()
-ex,its, ii = 0, [], None
+ex,its, ii, act_cr = 0, [], None, ""
 t = pa.last("t", name)
 l = max(int(pa.last("l", 4)),4)
 i = pa.last("i")
@@ -67,7 +67,7 @@ if real:
 else:
   ms.append(f"*{name} casts Polymorph on {t}")
 
-  ms.append("")
+ms.append("")
 
 if c and not real:
   ms.append(f"""Couldn't find a target {t} - is there a typo? ({grp})""")
@@ -81,19 +81,8 @@ if len(creature) == 0:
   ms.append(f'You do not need to use `-f` if you are targetting yourself.')
   ms.append(f'Use `-t target` to target someone or something else, `-l` to use a higher level slot or `-i` to ignore requirements')
   ok = False
-elif i or ch.spellbook.can_cast("Polymorph", l):
-  ms.append(f"""This spell transforms a creature that you can see within range into a new form. An unwilling creature must make a Wisdom saving throw to avoid the effect. The spell has no effect on a shapechanger or a creature with 0 hit points.
-
-The transformation lasts for the duration, or until the target drops to 0 hit points or dies. The new form can be any beast whose challenge rating is equal to or less than the target's (or the target's level, if it doesn't have a challenge rating). The target's game statistics, including mental ability scores, are replaced by the statistics of the chosen beast. It retains its alignment and personality.
-
-The target assumes the hit points of its new form. When it reverts to its normal form, the creature returns to the number of hit points it had before it transformed. If it reverts as a result of dropping to 0 hit points, any excess damage carries over to its normal form. As long as the excess damage doesn't reduce the creature's normal form to 0 hit points, it isn't knocked unconscious.
-
-The creature is limited in the actions it can perform by the nature of its new form, and it can't speak, cast spells, or take any other action that requires hands or speech.
-
-The target's gear melds into the new form. The creature can't activate, use, wield, or otherwise benefit from any of its equipment.)""")
-
-if len(creature) > 0:
-  for lv in range(2, tl + 1):
+else:
+  for lv in range(2, int(tl) + 1):
     cr.append(f'CR {lv}')
 
   for j in lists:
@@ -132,11 +121,16 @@ if len(creature) > 0:
     
     el = ", ".join(cr)
     ms.append(f"Eligible CRs: {el}")
+    ok = False
   else:        
     creature = its[0]
-    ms.append(f'Found creature {creature}')
-    if not i:
-      ch.spellbook.cast("Polymorph", l)
+    ms.append(f'Found creature {creature} [{act_cr}]')
+
+canCast = (i or ch.spellbook.can_cast("Polymorph", l))
+
+if ok and canCast:
+  if not i:
+    ch.spellbook.cast("Polymorph", l)
 
   if c and len(its) == 1:
     r = real.save("wis",adv)
@@ -154,7 +148,7 @@ if len(creature) > 0:
       ft = "**Cast on Self**"
     elif r == 0:
       fail = True
-      ft = "**Specified -fail to autofail**"
+      ft = "**Specified `-f` to autofail**"
     elif fail:
       ft = "**Failed!**"
     else:
@@ -167,31 +161,36 @@ if len(creature) > 0:
 
       extra = ""
       if isSelf:
-        extra = """-note "Needs a !ms con after damage (concentration)" """
+        extra = """-note "Remember to use creature for concentration checks!" """
 
       o.append(f'!i madd "{creature}" -group {grp} -controller {ctx.author} -h {extra}')
-      if not isSelf:
-        o.append(f'!i effect "{grp}" Polymorph -parent "{name}|Polymorph Caster"')
+
+      if isSelf:
+        o.append(f'!i effect "{grp}" Polymorph -conc')
       else:
-        o.append(f'!i effect "{grp}" Polymorph -conc -parent "{name}|Polymorph Caster"')
-
-      if c.me:
-        c.me.add_effect("Polymorph Caster", duration = 600, concentration=True, desc="If concentration is ended, caster needs to run `!polymorph end`")
-
-      o.append(f'!monimage "{creature}"')
+        c.me.add_effect("Polymorph Caster", duration = 600, concentration=True)
+        o.append(f'!i effect "{grp}" Polymorph -parent "{name}|Polymorph Caster"')
 elif not i:
   ms.append(f"Can't cast at {l} - {ch.spellbook.slots_str(l)}")
 
 if not c:
   ms.append(f'Not currently in combat. (repeat with -i when combat happens)')    
 
+if ok:
+  ms.append("")
+  
+  if isSelf:
+    ms.append(f"""When finished use `!polymorph end` if in combat to end the effect and apply any carry over damage (if the polymorph form is still in initiative).""")
+    ms.append(f"""Use `!polymorph end -d #` to specify damage if the creature is already removed""")
+  else:
+    ms.append(f"""When finished use `!polymorph end -t "{real.name}"` if in combat to end the effect and apply any carry over damage (if the polymorph form is still in initiative).""")
+    ms.append(f"""Use `!polymorph end -d # -t "{real.name}"` to specify damage if the creature is already removed""")
 
 dt = "\n".join(ms)
 extra = ""
 if len(fields):
   "-f ".join(fields)
 
-o.append(f"""!embed -desc "{dt}" -footer "!polymorph <-c creature> [-l #] [-i] [-t target] [-f] | !polymorph end [-d #] [-t target]" {extra}""")
-o.reverse()
+o.insert(0, f"""!embed -desc "{dt}" -footer "!polymorph <-c creature> [-l #] [-i] [-t target] [-f]" {extra}""")
 return "\n".join(o)
 </drac2>
