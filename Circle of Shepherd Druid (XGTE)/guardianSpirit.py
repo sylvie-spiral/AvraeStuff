@@ -8,7 +8,6 @@ ch = character()
 pa = argparse("&*&")
 ar = [x.lower() for x in &ARGS&]
 
-grp = f"""CO-{name}"""
 aSP = load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
 
 #is there an initiative?
@@ -30,18 +29,38 @@ if combat():
       ms.append(f"Healing each creature for {heal} hp.")
 
       # find the group
-      g = combat().get_group(grp)
+      # get the effect:
+      effects = ['Conjure Woodland Beings Caster', 'Conjure Animals Caster', 'Conjure Fey Caster', 'Summon Fey Caster', 'Summon Beast Caster']
+
+      g = None
+
+      eff = None
+      for x in effects:
+        eff = combat().me.get_effect(x)
+        if not eff == None:
+          break
+
+      if eff == None:
+        ms.append(f"""Apply this in combat after using !conjure to create the group.""")
+      else:
+        #find our creature
+        if len(eff.children) > 0:
+          childEff = eff.children[0]
+          childName = childEff.combatant_name
+          child = combat().get_combatant(childName)
+          g = combat().get_group(child.group)
+
       if g == None:
-        ms.append(f"""Could not find a {grp} group - did you use !conjure?""")
+        ms.append(f"""Could not find the group - did you use !conjure?""")
       else:
         for i in g.combatants:
           if i.creature_type:
             ltype = i.creature_type.lower()
             if "fey" in ltype or "beast" in ltype:
-              ef = i.get_effect("Spirit Totem Aura:")
+              ef = i.get_effect("Totem Aura")
               if not ef:
                 nope.append(f"{i.name} (No Aura)")
-              if i.hp <= 0:
+              elif i.hp <= 0:
                 nope.append(f"{i.name} (Dead)")
               else:
                 i.damage(f"-{heal}[healing]")

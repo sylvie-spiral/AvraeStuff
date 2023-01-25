@@ -12,7 +12,8 @@ using(
     nameLib = "e38598a0-1678-496c-b816-664be45c6a98"
 )
 
-bhp,grp,aSP = 0,f'{nameLib.getInitials(name)}-Conjure',load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
+#specify the initials so that the conjured group doesn't merge with any other active group from another ability.
+bhp,grp,aSP = 0,nameLib.createGroupName(nameLib.getInitials(name),'Conjure'),load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
 
 spell,ws = None,None
 
@@ -178,10 +179,11 @@ else:
           for x in range(0, mul):
             o.append(f"""!i madd "{mm}" -n {ns} -group "{grp}" -controller {ctx.author} -h """)
           
-          c1 = co.get_combatant(name, True)
+          c1 = co.me
           if c1:
             c1.add_effect(f'{spell} Caster', duration=600, concentration=True)
-            o.append(f"""!i effect "{grp}" "{spell}" -parent "{name}|{spell} Caster" """)
+            safeName = nameLib.getSafeName(c1.name)
+            o.append(f"""!i effect "{grp}" "{spell}" -parent '{safeName}|{spell} Caster' """)
             
         else:
           t = mul * ns

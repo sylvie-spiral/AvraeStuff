@@ -4,11 +4,11 @@ o = []
 ms = []
 
 ch = character()
+me = combat().me
 
 pa = argparse("&*&")
 ar = [x.lower() for x in &ARGS&]
 
-grp = f"""CO-{name}"""
 aSP = load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
 
 #is there an initiative?
@@ -24,10 +24,30 @@ if combat():
       ms.append("* The damage from its natural weapons is considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks and damage.")
       ms.append("")
 
+      # get the effect:
+      effects = ['Conjure Woodland Beings Caster', 'Conjure Animals Caster', 'Conjure Fey Caster']
+
+      g = None
+
+      eff = None
+      for x in effects:
+        eff = me.get_effect(x)
+        if not eff == None:
+          break
+
+      if eff == None:
+        ms.append(f"""Apply this in combat after using !conjure to create the group.""")
+      else:
+        #find our creature
+        if len(eff.children) > 0:
+          childEff = eff.children[0]
+          childName = childEff.combatant_name
+          child = combat().get_combatant(childName)
+          g = combat().get_group(child.group)
+
       # find the group
-      g = combat().get_group(grp)
       if g == None:
-        ms.append(f"""Could not find a {grp} group - did you use !conjure?""")
+        ms.append(f"""Could not find the group - did you use !conjure?""")
       else:
         # find the creature in the dictionaries
         w = g.combatants[0].monster_name
@@ -93,7 +113,7 @@ if combat():
   else:
     ms.append(f"""This command only works for Circle of Shepherd, do you need to !level druid shepherd?""")
 else:
-  ms.append(f"""Apply this in combat after using !conjure to create the {grp} group.""")
+  ms.append(f"""Apply this in combat after using !conjure to create the group.""")
 
 dt = "\n".join(ms)
 o.append(f"""!embed -desc "{dt}" -footer "!mightySummon (use in initiative after conjure) | @SylvieTG#4737" """)

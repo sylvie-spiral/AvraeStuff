@@ -71,3 +71,17 @@ def getInitials(name) -> string:
         prefix = name[0:2]
 
     return prefix
+
+#tested with: Elena "d'tester" Voidspark
+#returns:     Elena \"d\'tester\" Voidspark
+#which then should be OK for embed fields, etc.
+def getSafeName(name) -> string:
+    if not name:
+        return ""
+    
+    # ok, we have a name
+    temp = name
+
+    temp = temp.replace("'","\\\\'")
+
+    return temp
