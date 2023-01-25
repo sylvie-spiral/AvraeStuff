@@ -9,8 +9,8 @@ def createGroupName(prefix='',suffix='Group') -> string:
     if not c or (not c.me):
         return ''
 
-    #if I'm already in a group, then we reuse that group
-    if c.me.group:
+    #if I'm already in a group, then we reuse that group - unless prefix is specified
+    if c.me.group and not prefix:
         return c.me.group
 
     # ok, lets do this: string.split(' ')
