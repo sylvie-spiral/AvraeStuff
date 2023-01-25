@@ -8,7 +8,11 @@ cr = {1:["CR 0","CR 1/8","CR 1/4"],2:["CR 1/2"],3:["CR 1"],4:["CR 2"],5:["CR 3"]
 if bd > len(cr):
   bd = -1
 
-bhp,grp,aSP = 0,f'CO-{name}',load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
+using(
+    nameLib = "e38598a0-1678-496c-b816-664be45c6a98"
+)
+
+bhp,grp,aSP = 0,f'{nameLib.getInitials(name)}-Conjure',load_json(get_gvar("9e91a358-654e-45cc-b7bd-94365858e88c"))
 
 spell,ws = None,None
 

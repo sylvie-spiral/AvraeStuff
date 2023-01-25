@@ -1,11 +1,15 @@
 multiline
 <drac2>
+using(
+    nameLib = "e38598a0-1678-496c-b816-664be45c6a98"
+)
+
 o,ms,ch,pa,args,c = [],[],character(),argparse("&*&"),&ARGS&,combat()
 ex,its, ii, act_cr = 0, [], None, ""
 t = pa.last("t", name)
 l = max(int(pa.last("l", 4)),4)
 i = pa.last("i")
-grp = f'POLY-{t}'
+grp = f'{nameLib.getInitials(t)}-Polymorph'
 fields = []
 fail = pa.last("f")
 isSelf = True
@@ -39,8 +43,6 @@ if c:
     for j in g.combatants:
       if j.creature_type == "beast":
         poly = j
-      else:
-        real = j
 
   else:
     if not real:      
@@ -156,7 +158,13 @@ if ok and canCast:
     ms.append(f'*{real}*: {r} - DC {dc} - {ft}')
 
     if fail:
-      grp = f'POLY-{real.name}'
+      # if we're targetting ourselves, use the normal group name.
+      # Otherwise, name it for the target instead.      
+      if isSelf:
+        grp = nameLib.createGroupName(suffix = "Polymorph")
+      else:        
+        grp = nameLib.createGroupNameTarget(real, suffix = "Polymorph")
+
       real.set_group(grp)
 
       extra = ""

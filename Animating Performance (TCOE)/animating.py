@@ -3,7 +3,11 @@ multiline
 #Discord: @SylvieTG#4737
 #If it's broke, DM me or leave an issue at my GitHub repository:
 #https://github.com/sylvie-spiral/AvraeStuff
-#Needs Dancing Item in your bestiary (I used https://critterdb.com/#/publishedbestiary/view/5fc08281f9101e03eeb5333e)
+
+using(
+    nameLib = "e38598a0-1678-496c-b816-664be45c6a98"
+)
+
 ch = character()
 out = []
 
@@ -16,6 +20,10 @@ help = "!animating [-i] [-l #] - @SylvieTG#4737"
 note = "Condition Immunities charmed, exhaustion, poisoned, frightened | Darkvision 60 ft., passive Perception 10 | Speed 30 ft., fly 30 ft. (hover) | Immutable Form. | Irrepressible Dance (within 10' at start of turn, +10/-10 movement, my choice)."
 ignoredUses = False
 usedSpell = False
+
+charPrefix = ch.name[0:2].upper()
+groupName = nameLib.createGroupName()
+itemName = f"{charPrefix}-Dancing Item"
 
 parsedArgs = argparse("&*&")
 spellSlot = parsedArgs.last("l", 0, int)
@@ -73,41 +81,13 @@ else:
     if (com):
       #continue if the player is in combat
       if (com.me):
-        groupName = "AP-" + com.me.name
         com.me.set_group(groupName)
         #cmd = f"""{ctx.prefix}i madd "{creatureName}" -group "{groupName}" -hp {ch.cc(ccHP).max} -c "{ch.name}" -note "{note}" -h"""
-        cmd = f"""{ctx.prefix}i add 0 "Dancing Item" -ac 16 -hp {10+(5*bardLevel)} -pb {proficiencyBonus} -strength 18 -dexterity 14 -constituion 16 -intelligence 4 -wisdom 10 -charisma 6 -immune poison -immune psychic -cr {proficiencyBonus} -type construct -note "Immune to Charmed, exhaustion, poisoned, frightened, spells/effects that alter form. 60' darkvision, immutable form. When any creature starts the turn within 10', the walking speed is increased or decreased (your choice) by 10 feet." -controller {ctx.author}"""
+        cmd = f"""{ctx.prefix}i add 0 "{itemName}" -ac 16 -hp {10+(5*bardLevel)} -pb {proficiencyBonus} -strength 18 -dexterity 14 -constituion 16 -intelligence 4 -wisdom 10 -charisma 6 -immune poison -immune psychic -cr {proficiencyBonus} -type construct -note "Immune to Charmed, exhaustion, poisoned, frightened, spells/effects that alter form. 60' darkvision, immutable form. When any creature starts the turn within 10', the walking speed is increased or decreased (your choice) by 10 feet." -controller {ctx.author} -group {groupName}"""
         out.append(cmd)
 
-        com.me.add_effect("Animating Performance",duration=600,attacks=[{
-          "attack": {
-            "name": "Force-Empowered Slam", 
-            "automation": [{
-              "type": "target", 
-              "target": "each", 
-              "effects": [
-                {"type": "attack", 
-                "attackBonus": character().spellbook.sab, 
-                "hit": [{
-                  "type": "damage", 
-                  "damage": f"1d10+{proficiencyBonus}[magical force]",
-                  "overheal": false, 
-                  "cantripScale": false
-                }], 
-                "miss": [], 
-                "adv": "0"
-              }], 
-              "sortBy": null}, {
-                "type": "text", 
-                "text": "Force-Empowered Slam"
-              }], 
-            "_v": 2, 
-            "verb": null, 
-            "proper": false}
-        }])
-
-        cmd = f"""{ctx.prefix}i effect "Dancing Item" "Animating Performance (object)" -parent '{ch.name}|Animating Performance' """
-          
+        cmd = f"""{ctx.prefix}i effect "{itemName}" "Force-Empowered Slam" -attack "{ch.spellbook.sab}|1d10+{proficiencyBonus}[magical force]|{itemName} performs a Force Empowered Slam!" """
+        out.append(cmd)
 
 usesMessage = ""
 

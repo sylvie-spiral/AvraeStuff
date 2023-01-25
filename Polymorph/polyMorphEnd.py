@@ -21,8 +21,6 @@ if c:
     for j in g.combatants:
       if j.creature_type == "beast":
         poly = j
-      else:
-        real = j
 
   else:
     if not real:      
