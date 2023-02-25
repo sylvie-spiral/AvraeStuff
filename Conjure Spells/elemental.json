@@ -1,5 +1,15 @@
 {
     "CR 3": {
+        "Ashen Knight": {
+            "HD": 8,
+            "Source": "KftGV",
+            "HP": 52
+        },
+        "Ashen Veteran": {
+            "HD": 9,
+            "Source": "KftGV",
+            "HP": 58
+        },
         "Flail Snail": {
             "HD": 5,
             "Source": "MotM",
@@ -28,6 +38,11 @@
             "HD": 12,
             "Source": "BR",
             "HP": 90
+        },
+        "Ashen Shambling Mound": {
+            "HD": 16,
+            "Source": "KftGV",
+            "HP": 136
         },
         "Dust Devil": {
             "HD": 12,
@@ -58,6 +73,11 @@
             "HD": 7,
             "Source": "BR",
             "HP": 73
+        },
+        "Murder Commet": {
+            "HD":7,
+            "HP":66,
+            "Source":"SAIS"
         }
     },
     "CR 6": {
