@@ -1,6 +1,30 @@
 # Group Name Lib
 # see https://github.com/sylvie-spiral/AvraeStuff
 # Purpose: generate a unique group name even if all the players shove the word professor in front of their names.
+def createCombatantName(prefix,suffix) -> string:
+    c,ch=combat(),character()
+
+    #if there's no combat, then just exit
+    if not c or (not c.me):
+        return ''
+
+    # ok, lets do this: string.split(' ')
+    if prefix == '':
+        prefix = getInitials(ch.name)
+
+    # proposed creature name
+    idNum = 1
+    newName = f'{prefix}-{suffix}{idNum}'
+
+    testNames = [comb.name.lower() for comb in c.combatants]
+
+    if newName.lower() in testNames:
+        while newName.lower() in testNames:
+            idNum += 1
+            newName = f'{prefix}-{suffix}{idNum}'
+
+    return newName
+
 
 def createGroupName(prefix='',suffix='Group') -> string:
     c,ch=combat(),character()
