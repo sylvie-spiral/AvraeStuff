@@ -183,7 +183,7 @@ else:
           if c1:
             c1.add_effect(f'{spell} Caster', duration=600, concentration=True)
             safeName = nameLib.getSafeName(c1.name)
-            o.append(f"""!i effect "{grp}" "{spell}" -parent '{safeName}|{spell} Caster' """)
+            o.append(f"""!i effect "{grp}" "{spell}" -parent "{safeName}|{spell} Caster" """)
             
         else:
           t = mul * ns
