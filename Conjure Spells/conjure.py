@@ -177,7 +177,7 @@ else:
             ms.append(f"""Removed existing creatures in {grp}""")
 
           for x in range(0, mul):
-            o.append(f"""!i madd "{mm}" -n {ns} -group "{grp}" -controller {ctx.author} -h """)
+            o.append(f"""!i madd "{mm}" -n {ns} -group "{grp}" -controller {ctx.author.name} -h """)
           
           c1 = co.me
           if c1:
