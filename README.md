@@ -17,3 +17,5 @@ Some random Avrae aliases, snippets, etc.
 `/Spells (General)/               `| Absorb Elements alias and snippet
 
 `/Utility/                        `| group (similar to Init Utils - dumps a list of targets) and once (just a sample snippet)
+
+`/Warlock/                        `| support for Warlock
