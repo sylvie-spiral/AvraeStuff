@@ -107,9 +107,9 @@ else:
           for i in its:
             col = col + 1
             if col % 2 != 1:
-              txt = txt + "| " + f"{i:35}\n".replace(" "," ")
+              txt = txt + "| " + f"{i:32}\n".replace(" "," ")
             else:
-              txt = txt + f"{i:35}"
+              txt = txt + f"{i:32}"
 
           ms.append(f"`{txt}`")
           ms.append("")
